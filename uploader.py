@@ -112,6 +112,13 @@ def playlist_id(yt, name, cache):
 def main():
     man = json.load(open(os.path.join(ASSET_DIR, "manifest.json"), encoding="utf-8"))
     items = man["items"]
+    # SAFETY (user rule 31 Oct): upload ONLY keys the user approved in chat, listed in approved.txt
+    ap = os.path.join(ASSET_DIR, "approved.txt")
+    approved = {l.strip() for l in open(ap, encoding="utf-8")} - {""} if os.path.exists(ap) else set()
+    items = [it for it in items if it["key"] in approved]
+    if not items:
+        log(f"## `{TAG}`: nothing approved yet (approved.txt missing or empty) — no upload.")
+        return
     for it in items:
         check(it)
     log(f"## Release `{TAG}` — {len(items)} videos, manifest OK")
