@@ -156,6 +156,13 @@ def main():
         if k in state:
             vid = state[k]["id"]
             update_meta(yt, vid, it)
+            if it.get("thumbnail"):
+                try:
+                    from googleapiclient.http import MediaFileUpload
+                    retry(lambda: yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(
+                        os.path.join(ASSET_DIR, it["thumbnail"]))).execute())
+                except Exception as e:
+                    log(f"  ⚠️ {k}: thumbnail failed: {e}")
             state[k]["title"] = it["title"]
             json.dump(state, open(STATE, "w"), ensure_ascii=False, indent=1)
             log(f"- {k}: already uploaded → updated title/description/tags/location https://youtu.be/{vid}")
