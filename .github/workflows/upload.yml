@@ -45,6 +45,7 @@ jobs:
         id: sec
         run: |
           ok=1
+          if [ ! -f batch/manifest.json ]; then echo "::notice::Batch still arriving (no manifest yet)."; echo "ok=0" >> "$GITHUB_OUTPUT"; exit 0; fi
           for s in YT_CLIENT_ID YT_CLIENT_SECRET YT_REFRESH_TOKEN; do
             if [ -z "${!s}" ]; then echo "::warning::Secret $s is not set yet (Settings → Secrets and variables → Actions). Videos are waiting; nothing uploaded."; ok=0; fi
           done
