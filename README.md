@@ -1,8 +1,11 @@
 # Sanatan Beats — YouTube auto-uploader
 
-A GitHub release holds the finished videos, thumbnails and `manifest.json`.
-Publishing the release starts `.github/workflows/upload.yml`, which uploads each item to YouTube
-as private + scheduled (`publishAt`), sets thumbnail, playlists and a comment, and records the video IDs in `uploaded/<tag>.json`.
+Claude pushes each batch to a branch `upload/<name>` containing `batch/manifest.json`, thumbnails and the
+videos split into parts under 95 MB (`video.mp4.part000`, `.part001` …).
+The push starts `.github/workflows/upload.yml`: it joins the parts, uploads every video as private +
+scheduled (`publishAt`), sets thumbnail, playlists and a comment, saves the video IDs in `uploaded/<name>.json`
+on `main`, and deletes the upload branch.
 
-Secrets needed: `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN` (scope `youtube.force-ssl`).
-Manual re-run: Actions → Upload to YouTube → Run workflow → tag (dry_run = 1 only checks).
+Secrets: `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN` (scope `youtube.force-ssl`).
+If the secrets are missing the run only warns and leaves the branch, so it can be re-run later
+(Actions → Upload to YouTube → Run workflow → branch).

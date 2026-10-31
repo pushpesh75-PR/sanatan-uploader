@@ -1,15 +1,19 @@
 name: Upload to YouTube
 
+# Claude pushes each batch of videos to a branch named upload/<batch-name>.
+# The branch holds batch/manifest.json, thumbnails and the videos split into <95 MB parts.
+# This workflow joins the parts, uploads + schedules every video, saves the result on main,
+# then deletes the upload branch so the repository stays small.
 on:
-  release:
-    types: [published]
+  push:
+    branches: ["upload/**"]
   workflow_dispatch:
     inputs:
-      tag:
-        description: "Release tag to upload (e.g. ram-aayenge)"
+      branch:
+        description: "Upload branch, e.g. upload/ram-aayenge"
         required: true
       dry_run:
-        description: "Only check, do not upload (1 = yes)"
+        description: "1 = only check, do not upload"
         required: false
         default: "0"
 
@@ -25,39 +29,64 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 120
     env:
-      RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.tag }}
+      BRANCH: ${{ github.event.inputs.branch || github.ref_name }}
       DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
-      ASSET_DIR: assets
+      ASSET_DIR: batch
       YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
       YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
-      GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch || github.ref }}
+      - name: Batch name
+        run: echo "RELEASE_TAG=${BRANCH#upload/}" >> "$GITHUB_ENV"
+      - name: Check secrets
+        id: sec
+        run: |
+          ok=1
+          for s in YT_CLIENT_ID YT_CLIENT_SECRET YT_REFRESH_TOKEN; do
+            if [ -z "${!s}" ]; then echo "::warning::Secret $s is not set yet (Settings → Secrets and variables → Actions). Videos are waiting; nothing uploaded."; ok=0; fi
+          done
+          echo "ok=$ok" >> "$GITHUB_OUTPUT"
       - uses: actions/setup-python@v5
+        if: steps.sec.outputs.ok == '1'
         with:
           python-version: "3.12"
       - name: Install
+        if: steps.sec.outputs.ok == '1'
         run: pip install google-api-python-client==2.151.0 google-auth==2.36.0
-      - name: Check secrets
+      - name: Join video parts
+        if: steps.sec.outputs.ok == '1'
         run: |
-          for s in YT_CLIENT_ID YT_CLIENT_SECRET YT_REFRESH_TOKEN; do
-            if [ -z "${!s}" ]; then echo "::error::Secret $s is missing (Settings → Secrets and variables → Actions)"; exit 1; fi
+          cd batch
+          for first in *.part000; do
+            [ -e "$first" ] || continue
+            name="${first%.part000}"
+            cat "$name".part* > "$name" && rm "$name".part*
           done
-      - name: Download release files
+          ls -la
+      - name: Get previous upload record
+        if: steps.sec.outputs.ok == '1'
         run: |
-          mkdir -p assets
-          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir assets
-          ls -la assets
+          mkdir -p uploaded
+          git fetch origin main --depth=1
+          git show "origin/main:uploaded/${RELEASE_TAG}.json" > "uploaded/${RELEASE_TAG}.json" 2>/dev/null || rm -f "uploaded/${RELEASE_TAG}.json"
       - name: Upload to YouTube
+        if: steps.sec.outputs.ok == '1'
         run: python uploader.py
-      - name: Remember what was uploaded
-        if: always()
+      - name: Save record on main
+        if: always() && steps.sec.outputs.ok == '1' && env.DRY_RUN != '1'
         run: |
-          if [ -n "$(git status --porcelain uploaded)" ]; then
-            git config user.name "uploader-bot"
-            git config user.email "uploader-bot@users.noreply.github.com"
-            git add uploaded
-            git commit -m "uploaded: $RELEASE_TAG"
-            git push
-          fi
+          f="uploaded/${RELEASE_TAG}.json"
+          [ -f "$f" ] || exit 0
+          cp "$f" /tmp/rec.json
+          git config user.name "uploader-bot"
+          git config user.email "uploader-bot@users.noreply.github.com"
+          git checkout -B main origin/main
+          mkdir -p uploaded && cp /tmp/rec.json "$f"
+          git add "$f"
+          git diff --cached --quiet || { git commit -m "uploaded: ${RELEASE_TAG}"; git push origin main; }
+      - name: Delete upload branch (keeps repo small)
+        if: success() && steps.sec.outputs.ok == '1' && env.DRY_RUN != '1'
+        run: git push origin --delete "$BRANCH"
