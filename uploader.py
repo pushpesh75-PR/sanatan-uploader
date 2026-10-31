@@ -130,7 +130,8 @@ def playlist_id(yt, name, cache):
 
 def main():
     man = json.load(open(os.path.join(ASSET_DIR, "manifest.json"), encoding="utf-8"))
-    items = man["items"]
+    all_items = man["items"]
+    items = all_items
     # SAFETY (user rule 31 Oct): upload ONLY keys the user approved in chat, listed in approved.txt
     ap = os.path.join(ASSET_DIR, "approved.txt")
     approved = {l.strip() for l in open(ap, encoding="utf-8")} - {""} if os.path.exists(ap) else set()
@@ -188,6 +189,8 @@ def main():
                 warn.append(f"comment failed (post it by hand): {e}")
         log(f"  ✅ {k}: https://youtu.be/{vid} · scheduled {it['publish_at_utc']} UTC · status {rec['privacy']}"
             + ("".join(f"\n  ⚠️ {w}" for w in warn)))
+    if all(it["key"] in state for it in man["items"]):
+        open("/tmp/all_done", "w").write("1")   # workflow deletes the branch only then
     log("Done. Open YouTube Studio → Content: every video should show “Scheduled”.")
 
 

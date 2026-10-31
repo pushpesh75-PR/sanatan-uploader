@@ -90,4 +90,5 @@ jobs:
           git diff --cached --quiet || { git commit -m "uploaded: ${RELEASE_TAG}"; git push origin main; }
       - name: Delete upload branch (keeps repo small)
         if: success() && steps.sec.outputs.ok == '1' && env.DRY_RUN != '1'
-        run: git push origin --delete "$BRANCH"
+        run: |
+          if [ -f /tmp/all_done ]; then git push origin --delete "$BRANCH"; else echo "Some videos not uploaded yet; keeping branch."; fi
