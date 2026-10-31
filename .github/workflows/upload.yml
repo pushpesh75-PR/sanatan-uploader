@@ -1,0 +1,63 @@
+name: Upload to YouTube
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to upload (e.g. ram-aayenge)"
+        required: true
+      dry_run:
+        description: "Only check, do not upload (1 = yes)"
+        required: false
+        default: "0"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube-upload
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      RELEASE_TAG: ${{ github.event.release.tag_name || github.event.inputs.tag }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || '0' }}
+      ASSET_DIR: assets
+      YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+      YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: pip install google-api-python-client==2.151.0 google-auth==2.36.0
+      - name: Check secrets
+        run: |
+          for s in YT_CLIENT_ID YT_CLIENT_SECRET YT_REFRESH_TOKEN; do
+            if [ -z "${!s}" ]; then echo "::error::Secret $s is missing (Settings → Secrets and variables → Actions)"; exit 1; fi
+          done
+      - name: Download release files
+        run: |
+          mkdir -p assets
+          gh release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" --dir assets
+          ls -la assets
+      - name: Upload to YouTube
+        run: python uploader.py
+      - name: Remember what was uploaded
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain uploaded)" ]; then
+            git config user.name "uploader-bot"
+            git config user.email "uploader-bot@users.noreply.github.com"
+            git add uploaded
+            git commit -m "uploaded: $RELEASE_TAG"
+            git push
+          fi
