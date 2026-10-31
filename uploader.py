@@ -155,7 +155,18 @@ def main():
         k = it["key"]
         if k in state:
             vid = state[k]["id"]
-            update_meta(yt, vid, it)
+            from googleapiclient.errors import HttpError
+            try:
+                update_meta(yt, vid, it)
+            except HttpError as e:
+                if e.resp.status == 404:   # deleted in Studio → upload it again
+                    log(f"- {k}: old video {vid} not found on YouTube → uploading again")
+                    del state[k]
+                    json.dump(state, open(STATE, "w"), ensure_ascii=False, indent=1)
+                    check(it)
+                else:
+                    raise
+        if k in state:
             if it.get("thumbnail"):
                 try:
                     from googleapiclient.http import MediaFileUpload
