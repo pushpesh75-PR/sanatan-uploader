@@ -60,6 +60,23 @@ def retry(fn, tries=5):
             raise
 
 
+def rec_details(loc):
+    return {"location": {"latitude": loc["lat"], "longitude": loc["lng"], "altitude": 0},
+            "locationDescription": loc.get("desc", "")}
+
+
+def update_meta(yt, vid, item):
+    """Change title/description/tags/location of an already-uploaded video (schedule untouched)."""
+    body = {"id": vid, "snippet": {
+        "title": item["title"], "description": item["description"], "tags": item.get("tags", []),
+        "categoryId": str(item.get("category_id", "10")),
+        "defaultLanguage": item.get("language", "hi"), "defaultAudioLanguage": item.get("language", "hi")}}
+    parts = "snippet"
+    if item.get("location"):
+        body["recordingDetails"] = rec_details(item["location"]); parts += ",recordingDetails"
+    return retry(lambda: yt.videos().update(part=parts, body=body).execute())
+
+
 def upload(yt, item):
     from googleapiclient.http import MediaFileUpload
     body = {
@@ -80,9 +97,11 @@ def upload(yt, item):
             "license": "youtube",
         },
     }
+    if item.get("location"):
+        body["recordingDetails"] = rec_details(item["location"])
     media = MediaFileUpload(os.path.join(ASSET_DIR, item["file"]), mimetype="video/mp4",
                             chunksize=16 * 1024 * 1024, resumable=True)
-    req = yt.videos().insert(part="snippet,status", body=body, media_body=media, notifySubscribers=True)
+    req = yt.videos().insert(part="snippet,status" + (",recordingDetails" if item.get("location") else ""), body=body, media_body=media, notifySubscribers=True)
     resp = None
     while resp is None:
         status, resp = retry(lambda: req.next_chunk())
@@ -119,8 +138,10 @@ def main():
     if not items:
         log(f"## `{TAG}`: nothing approved yet (approved.txt missing or empty) — no upload.")
         return
+    prev = json.load(open(STATE)) if os.path.exists(STATE) else {}
     for it in items:
-        check(it)
+        if it["key"] not in prev:
+            check(it)
     log(f"## Release `{TAG}` — {len(items)} videos, manifest OK")
     if DRY:
         for it in items:
@@ -132,7 +153,11 @@ def main():
     for it in items:
         k = it["key"]
         if k in state:
-            log(f"- {k}: already uploaded → https://youtu.be/{state[k]['id']} (skipped)")
+            vid = state[k]["id"]
+            update_meta(yt, vid, it)
+            state[k]["title"] = it["title"]
+            json.dump(state, open(STATE, "w"), ensure_ascii=False, indent=1)
+            log(f"- {k}: already uploaded → updated title/description/tags/location https://youtu.be/{vid}")
             continue
         log(f"- {k}: uploading {it['file']} …")
         v = upload(yt, it); vid = v["id"]
