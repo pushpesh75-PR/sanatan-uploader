@@ -38,6 +38,23 @@ jobs:
           mkdir -p channel; cp /tmp/videos.json channel/videos.json
           git add channel/videos.json
           git diff --cached --quiet || { git commit -m "channel export"; git push origin main; }
+      - name: Fetch clips from URLs (task/fetch-<name>)
+        if: startsWith(github.ref_name, 'task/fetch')
+        run: |
+          name="${GITHUB_REF_NAME#task/fetch-}"
+          mkdir -p clips
+          i=0
+          while read -r label url; do
+            [ -z "$url" ] && continue
+            curl -fsSL --retry 3 -o "clips/${label}.mp4" "$url"
+            ls -la "clips/${label}.mp4"
+          done < fetch/urls.txt
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git checkout -B "clips/${name}"
+          git rm -rq --cached fetch || true
+          git add clips
+          git commit -qm "clips: ${name}"
+          git push -f origin "clips/${name}"
       - name: Update video metadata
         if: startsWith(github.ref_name, 'task/update')
         run: python updater.py
