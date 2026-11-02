@@ -88,6 +88,16 @@ jobs:
           mkdir -p channel; cp /tmp/ch/*.json channel/
           git add channel
           git diff --cached --quiet || { git commit -qm "channel profile"; git push origin main; }
+      - name: Kahani cohort (task/kcohort)
+        if: github.ref_name == 'task/kcohort'
+        run: |
+          python peers_katha.py
+          cp channel/peers_katha.json /tmp/pk.json
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git fetch origin main --depth=1; git checkout -B main origin/main
+          cp /tmp/pk.json channel/peers_katha.json
+          git add channel/peers_katha.json
+          git diff --cached --quiet || { git commit -qm "kahani cohort"; git push origin main; }
       - name: Peer cohort (task/peers)
         if: github.ref_name == 'task/peers'
         run: |
