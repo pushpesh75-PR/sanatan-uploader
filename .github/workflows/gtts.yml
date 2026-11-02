@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: |
+          N=${GITHUB_REF_NAME#gtts/}; mkdir -p ttsout
+          git fetch origin gttsout-$N 2>/dev/null && git checkout FETCH_HEAD -- ttsout 2>/dev/null || true
+          git reset -q; ls ttsout
       - env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}" }
         run: python3 gemini_tts.py ${GITHUB_REF_NAME#gtts/}
       - if: always()
