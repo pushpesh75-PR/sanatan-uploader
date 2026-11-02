@@ -78,6 +78,16 @@ jobs:
           mkdir -p channel/thumbs; cp /tmp/out/*.json channel/; cp /tmp/out/thumbs/* channel/thumbs/ 2>/dev/null || true
           git add channel
           git diff --cached --quiet || { git commit -qm "deep research data"; git push origin main; }
+      - name: Channel profile (task/chan)
+        if: github.ref_name == 'task/chan'
+        run: |
+          python chan.py
+          mkdir -p /tmp/ch; cp channel/chan_*.json /tmp/ch/
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git fetch origin main --depth=1; git checkout -B main origin/main
+          mkdir -p channel; cp /tmp/ch/*.json channel/
+          git add channel
+          git diff --cached --quiet || { git commit -qm "channel profile"; git push origin main; }
       - name: Competitor scan (task/competitors)
         if: github.ref_name == 'task/competitors'
         run: |
