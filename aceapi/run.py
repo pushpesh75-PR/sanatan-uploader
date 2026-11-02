@@ -5,7 +5,7 @@ S = "aceapi/s/acestep/scripts/acestep.sh"
 OUT = "acestep_output"; DEST = "aceout"
 os.makedirs(DEST, exist_ok=True)
 cfg = json.load(open("aceapi/s/acestep/scripts/config.example.json"))
-cfg["api_key"] = os.environ["ACE_MUSIC_API_KEY"]; cfg["api_mode"] = "native"; cfg["generation"]["vocal_language"] = "hi"
+cfg["api_key"] = os.environ["ACE_MUSIC_API_KEY"]; cfg["api_mode"] = "completion"; cfg["generation"]["vocal_language"] = "hi"
 json.dump(cfg, open("aceapi/s/acestep/scripts/config.json", "w"))
 log = {}
 for j in json.load(open(sys.argv[1] if len(sys.argv) > 1 else "aceapi/jobs.json")):
