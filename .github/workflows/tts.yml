@@ -1,0 +1,24 @@
+name: Hindi TTS
+on:
+  push:
+    branches: ["tts/**"]
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -q edge-tts
+      - run: |
+          N=${GITHUB_REF_NAME#tts/}; mkdir -p ttsout
+          for f in tts/$N/*.txt; do b=$(basename $f .txt); V=$(head -1 $f | grep -oP '(?<=^#voice=)\S+' || echo hi-IN-MadhurNeural); R=$(head -1 $f | grep -oP '(?<=rate=)\S+' || echo "-8%");
+            grep -v '^#voice' $f > /tmp/in.txt
+            edge-tts --voice "$V" --rate="$R" -f /tmp/in.txt --write-media ttsout/$b.mp3 --write-subtitles ttsout/$b.srt || echo "::error::tts failed $b"; done
+          ls -la ttsout
+      - run: |
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          N=${GITHUB_REF_NAME#tts/}
+          git checkout --orphan tmp; git rm -rqf --cached .; git add ttsout; git commit -qm "tts $N"; git push -f origin HEAD:refs/heads/ttsout-$N
