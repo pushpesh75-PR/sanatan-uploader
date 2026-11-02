@@ -20,3 +20,22 @@ jobs:
           git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
           git fetch origin main --depth=1; git checkout -B main origin/main
           git add acedocs; git commit -qm "ace-step docs"; git push origin main
+      - name: Generate test songs on CPU (ace/test-*)
+        if: startsWith(github.ref_name, 'ace/test')
+        run: |
+          free -h; nproc; df -h /
+          git clone --depth 1 https://github.com/ACE-Step/ACE-Step-1.5.git /tmp/ace
+          cd /tmp/ace
+          python3 -m pip install -q uv
+          uv venv -q --python 3.11 .venv
+          . .venv/bin/activate
+          uv pip install -q --index-strategy unsafe-best-match --extra-index-url https://download.pytorch.org/whl/cpu torch torchaudio
+          uv pip install -q -e . 2>&1 | tail -5 || true
+          cd $GITHUB_WORKSPACE
+          export ACESTEP_INIT_LLM=false
+          timeout 240m python ace/gen.py ace/jobs.json /tmp/aceout 2>&1 | tee /tmp/ace.log | tail -80
+          mkdir -p aceout; find /tmp/aceout -type f \( -name "*.mp3" -o -name "*.wav" -o -name "*.flac" \) -exec cp {} aceout/ \; ; cp /tmp/ace.log aceout/
+          ls -la aceout
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git checkout -B ace-out
+          git add aceout; git commit -qm "ace test output"; git push -f origin ace-out
