@@ -44,6 +44,17 @@ for v in vids:
     if v.get("privacy") == "public" and v.get("views", 0) >= 5:
         q(f"retention_{v['id']}", dimensions="elapsedVideoTimeRatio", filters=f"video=={v['id']}",
           metrics="audienceWatchRatio,relativeRetentionPerformance")
+
+# per-video traffic sources + content type for every public video with views
+for v in vids:
+    if v.get("privacy") == "public" and v.get("views", 0) >= 3:
+        q(f"traffic_{v['id']}", dimensions="insightTrafficSourceType", filters=f"video=={v['id']}", metrics="views,estimatedMinutesWatched", sort="-views")
+q("content_type_daily", dimensions="day,creatorContentType", metrics="views,estimatedMinutesWatched,averageViewDuration", sort="day")
+q("by_video_type", dimensions="video,creatorContentType", metrics="views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage", sort="-views", maxResults=200)
+q("country_type", dimensions="country,creatorContentType", metrics="views", sort="-views", maxResults=30)
+q("os", dimensions="operatingSystem", metrics="views", sort="-views", maxResults=10)
+q("playback_location", dimensions="insightPlaybackLocationType", metrics="views,estimatedMinutesWatched", sort="-views")
+q("end_screen_cards", metrics="cardImpressions,cardClicks,cardClickRate")
 os.makedirs("channel", exist_ok=True)
 json.dump(out, open("channel/analytics.json", "w"), ensure_ascii=False, indent=1)
 print("reports", len(out["reports"]), "errors", len(out["errors"]))

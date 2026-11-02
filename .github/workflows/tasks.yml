@@ -49,6 +49,35 @@ jobs:
           mkdir -p channel; for f in videos channel analytics; do cp /tmp/$f.json channel/$f.json; done
           git add channel
           git diff --cached --quiet || { git commit -m "analytics report"; git push origin main; }
+      - name: Deep research (task/deep)
+        if: github.ref_name == 'task/deep'
+        run: |
+          pip install pytrends==4.9.2 || true
+          python exporter.py
+          python analytics.py
+          python deep.py
+          mkdir -p /tmp/out/thumbs
+          python - <<'PY'
+          import json, urllib.request
+          v = json.load(open("channel/videos.json"))["videos"]
+          d = json.load(open("channel/deep.json"))
+          ids = [("our_" + x["id"], x["id"]) for x in v if x.get("privacy") == "public"]
+          top = sorted([k for k, x in d["videos"].items() if x["sec"] >= 240], key=lambda k: -d["videos"][k]["views"])[:70]
+          ids += [("comp_" + k, k) for k in top]
+          for name, vid in ids:
+              for q in ("maxresdefault", "hqdefault"):
+                  try:
+                      b = urllib.request.urlopen(f"https://i.ytimg.com/vi/{vid}/{q}.jpg", timeout=20).read()
+                      open(f"/tmp/out/thumbs/{name}.jpg", "wb").write(b); break
+                  except Exception:
+                      pass
+          PY
+          for f in videos channel analytics deep; do cp channel/$f.json /tmp/out/$f.json; done
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git fetch origin main --depth=1; git checkout -B main origin/main
+          mkdir -p channel/thumbs; cp /tmp/out/*.json channel/; cp /tmp/out/thumbs/* channel/thumbs/ 2>/dev/null || true
+          git add channel
+          git diff --cached --quiet || { git commit -qm "deep research data"; git push origin main; }
       - name: Competitor scan (task/competitors)
         if: github.ref_name == 'task/competitors'
         run: |
