@@ -1,0 +1,26 @@
+name: Fetch public-domain texts
+on:
+  push:
+    branches: ["txt/**"]
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p texts
+          while read -r name url; do [ -z "$url" ] && continue; curl -fsSL --retry 3 -A "Mozilla/5.0" "$url" -o "texts/$name.html" || echo "fail $name"; done < txt/urls.txt
+          python3 - <<'PY'
+          import re,html,glob
+          for f in glob.glob("texts/*.html"):
+              s=open(f,encoding="utf-8",errors="ignore").read()
+              s=re.sub(r"(?is)<(script|style).*?</\1>","",s); s=re.sub(r"(?i)<br\s*/?>","\n",s); s=re.sub(r"(?i)</(p|div|pre|h\d|li)>","\n",s)
+              s=html.unescape(re.sub(r"<[^>]+>","",s)); s=re.sub(r"\n\s*\n+","\n",s)
+              open(f[:-5]+".txt","w",encoding="utf-8").write(s)
+          PY
+          rm -f texts/*.html
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git fetch origin main --depth=1; git checkout -B main origin/main
+          git add texts; git commit -qm "texts"; git push origin main
