@@ -98,6 +98,16 @@ jobs:
           cp /tmp/peers.json channel/peers.json
           git add channel/peers.json
           git diff --cached --quiet || { git commit -qm "peer cohort"; git push origin main; }
+      - name: Channel fixes (task/fix-channel)
+        if: github.ref_name == 'task/fix-channel'
+        run: |
+          python fix_channel.py
+          cp channel/fix_report.json /tmp/fix_report.json
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git fetch origin main --depth=1; git checkout -B main origin/main
+          cp /tmp/fix_report.json channel/fix_report.json
+          git add channel/fix_report.json
+          git diff --cached --quiet || { git commit -qm "channel fixes report"; git push origin main; }
       - name: Competitor scan (task/competitors)
         if: github.ref_name == 'task/competitors'
         run: |
