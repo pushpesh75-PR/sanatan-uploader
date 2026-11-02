@@ -1,0 +1,18 @@
+name: Gemini TTS
+on:
+  push:
+    branches: ["gtts/**"]
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}" }
+        run: python3 gemini_tts.py ${GITHUB_REF_NAME#gtts/}
+      - if: always()
+        run: |
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          N=${GITHUB_REF_NAME#gtts/}; mkdir -p ttsout
+          git checkout --orphan tmp; git rm -rqf --cached .; git add ttsout; git commit -qm "gtts $N" || true; git push -f origin HEAD:refs/heads/gttsout-$N
