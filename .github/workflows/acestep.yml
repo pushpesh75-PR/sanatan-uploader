@@ -1,0 +1,22 @@
+name: ACE-Step test
+on:
+  push:
+    branches: ["ace/**"]
+permissions:
+  contents: write
+jobs:
+  ace:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch ACE-Step docs (ace/docs)
+        if: github.ref_name == 'ace/docs'
+        run: |
+          git clone --depth 1 https://github.com/ACE-Step/ACE-Step-1.5.git /tmp/ace
+          mkdir -p acedocs; cp -r /tmp/ace/docs/en acedocs/ 2>/dev/null || true; cp /tmp/ace/README.md /tmp/ace/pyproject.toml acedocs/
+          ls /tmp/ace; ls /tmp/ace/acestep | head -50
+          (cd /tmp/ace && find . -name "*.py" -path "*acestep*" | head -80) > acedocs/pyfiles.txt
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git fetch origin main --depth=1; git checkout -B main origin/main
+          git add acedocs; git commit -qm "ace-step docs"; git push origin main
