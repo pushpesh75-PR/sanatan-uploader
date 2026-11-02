@@ -1,0 +1,23 @@
+name: Fetch audio of our own YouTube videos
+on:
+  push:
+    branches: ["ytdl/**"]
+permissions:
+  contents: write
+jobs:
+  y:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q -U yt-dlp && sudo apt-get install -y ffmpeg >/dev/null
+      - run: |
+          mkdir -p ytout
+          while read -r label id; do [ -z "$id" ] && continue
+            yt-dlp -f bestaudio -x --audio-format wav -o "ytout/${label}.%(ext)s" "https://www.youtube.com/watch?v=$id" 2>&1 | tail -5 || echo "::error::fail $label"
+          done < ytdl/ids.txt
+          ls -la ytout
+      - if: always()
+        run: |
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          N=${GITHUB_REF_NAME#ytdl/}
+          git checkout --orphan tmp; git rm -rqf --cached .; git add ytout; git commit -qm "yt $N" || true; git push -f origin HEAD:refs/heads/ytout-$N
