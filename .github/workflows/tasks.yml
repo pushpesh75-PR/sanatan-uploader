@@ -21,7 +21,7 @@ jobs:
     env:
       YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
-      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      YT_REFRESH_TOKEN: ${{ contains(github.ref_name, 'katha') && secrets.YT_REFRESH_TOKEN_KATHA || secrets.YT_REFRESH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -141,3 +141,20 @@ jobs:
       - name: Delete task branch
         if: success()
         run: git push origin --delete "${{ github.ref_name }}"
+      - name: Who am I (task/whoami-*)
+        if: startsWith(github.ref_name, 'task/whoami')
+        run: |
+          python - <<'PY'
+          import json, os
+          from uploader import service
+          yt = service()
+          c = yt.channels().list(part="snippet,statistics,brandingSettings", mine=True).execute()["items"][0]
+          n = os.environ["GITHUB_REF_NAME"].split("whoami-")[-1]
+          os.makedirs("channel", exist_ok=True)
+          json.dump({"id": c["id"], "title": c["snippet"]["title"], "custom": c["snippet"].get("customUrl"), "stats": c["statistics"]}, open(f"/tmp/who_{n}.json", "w"), ensure_ascii=False)
+          print(open(f"/tmp/who_{n}.json").read())
+          PY
+          n=${GITHUB_REF_NAME#task/whoami-}
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git fetch origin main --depth=1; git checkout -B main origin/main
+          mkdir -p channel; cp /tmp/who_$n.json channel/whoami_$n.json; git add channel; git commit -qm "whoami $n"; git push origin main

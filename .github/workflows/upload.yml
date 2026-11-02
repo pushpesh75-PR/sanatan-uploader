@@ -34,7 +34,7 @@ jobs:
       ASSET_DIR: batch
       YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
       YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
-      YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+      YT_REFRESH_TOKEN: ${{ contains(github.ref_name, 'katha') && secrets.YT_REFRESH_TOKEN_KATHA || secrets.YT_REFRESH_TOKEN }}
     steps:
       - uses: actions/checkout@v4
         with:
