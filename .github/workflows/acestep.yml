@@ -22,7 +22,9 @@ jobs:
           git add acedocs; git commit -qm "ace-step docs"; git push origin main
       - name: Free disk
         if: startsWith(github.ref_name, 'ace/test')
-        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost "$AGENT_TOOLSDIRECTORY" || true; df -h /
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost "$AGENT_TOOLSDIRECTORY" || true
+          sudo swapoff -a || true; sudo fallocate -l 14G /swapfile2 && sudo chmod 600 /swapfile2 && sudo mkswap /swapfile2 && sudo swapon /swapfile2; free -h; df -h /
       - uses: actions/setup-python@v5
         if: startsWith(github.ref_name, 'ace/test')
         with:
@@ -30,6 +32,7 @@ jobs:
       - name: Generate test songs on CPU (ace/test-*)
         if: startsWith(github.ref_name, 'ace/test')
         run: |
+          set +e
           nproc; free -h
           git clone --depth 1 https://github.com/ACE-Step/ACE-Step-1.5.git /tmp/ace
           pip install -q torch==2.10.0 torchaudio==2.10.0 torchvision==0.25.0 --index-url https://download.pytorch.org/whl/cpu
@@ -38,7 +41,8 @@ jobs:
           df -h /
           export ACESTEP_INIT_LLM=false
           set +e
-          timeout 240m python ace/gen.py ace/jobs.json /tmp/aceout > /tmp/ace.log 2>&1
+          ( while true; do free -m | awk 'NR==2{print "MEM used",$3,"avail",$7}' >> /tmp/mem.log; sleep 20; done ) &
+          timeout 240m python ace/gen.py ace/jobs.json /tmp/aceout > /tmp/ace.log 2>&1; echo "exit $?" >> /tmp/ace.log; tail -30 /tmp/mem.log >> /tmp/ace.log
           tail -80 /tmp/ace.log
           mkdir -p aceout; find /tmp/aceout -type f \( -name "*.mp3" -o -name "*.wav" -o -name "*.flac" \) -exec cp {} aceout/ \; ; cp /tmp/ace.log aceout/
           ls -la aceout
