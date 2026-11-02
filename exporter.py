@@ -28,7 +28,17 @@ def main():
                          "views": int(v.get("statistics", {}).get("viewCount", 0)),
                          "likes": int(v.get("statistics", {}).get("likeCount", 0)),
                          "location": v.get("recordingDetails", {}).get("locationDescription")})
+    pls, page = [], None
+    while True:
+        r = retry(lambda: yt.playlists().list(part="snippet,contentDetails,status", mine=True, maxResults=50, pageToken=page).execute())
+        pls += [{"id": p["id"], "title": p["snippet"]["title"], "description": p["snippet"].get("description", ""),
+                 "count": p["contentDetails"]["itemCount"], "privacy": p["status"]["privacyStatus"]} for p in r.get("items", [])]
+        page = r.get("nextPageToken")
+        if not page:
+            break
+    full = retry(lambda: yt.channels().list(part="snippet,statistics,brandingSettings,status,topicDetails", mine=True).execute())["items"][0]
     os.makedirs("channel", exist_ok=True)
+    json.dump({"channel": full, "playlists": pls}, open("channel/channel.json", "w"), ensure_ascii=False, indent=1)
     json.dump({"channel": ch["snippet"]["title"], "subscribers": ch["statistics"].get("subscriberCount"),
                "videos": vids}, open("channel/videos.json", "w"), ensure_ascii=False, indent=1)
     print(f"saved {len(vids)} videos")
