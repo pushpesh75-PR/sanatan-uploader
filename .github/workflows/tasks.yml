@@ -146,7 +146,7 @@ jobs:
           i=0
           while read -r label url; do
             [ -z "$url" ] && continue
-            curl -fsSL --retry 3 -o "clips/${label}.mp4" "$url"
+            curl -fsSL --retry 3 -o "clips/${label}.mp4" "$url" || { echo "::warning::missing $label"; rm -f "clips/${label}.mp4"; continue; }
             ls -la "clips/${label}.mp4"
           done < fetch/urls.txt
           git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
