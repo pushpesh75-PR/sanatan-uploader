@@ -1,0 +1,47 @@
+[
+ {
+  "name": "A_original",
+  "caption": "Peaceful Indian devotional Sanskrit mantra chant, Hindu temple bhajan, slow and melodious, every syllable pronounced clearly in classical Sanskrit, long resonant Om. Warm rich deep Indian male vocal. Tanpura drone, bansuri flute, harmonium, soft tabla, temple bells. Calm, spiritual.",
+  "lyrics": "[Verse]\nॐ मित्राय नमः। ॐ रवये नमः।\nॐ सूर्याय नमः। ॐ भानवे नमः।\nॐ हिरण्यगर्भाय नमः। ॐ भास्कराय नमः।\n\n[Chorus]\nॐ आदित्याय विद्महे मार्तण्डाय धीमहि।\nतन्नः सूर्यः प्रचोदयात्॥",
+  "duration": 80,
+  "bpm": 72,
+  "batch": 1,
+  "lang": "hi"
+ },
+ {
+  "name": "B_om_split",
+  "caption": "Peaceful Indian devotional Sanskrit mantra chant, Hindu temple bhajan, slow and melodious, every syllable pronounced clearly in classical Sanskrit, long resonant Om. Warm rich deep Indian male vocal. Tanpura drone, bansuri flute, harmonium, soft tabla, temple bells. Calm, spiritual.",
+  "lyrics": "[Verse]\nओऽऽम् मित्राय नमः। ओऽऽम् रवये नमः।\nओऽऽम् सूर्याय नमः। ओऽऽम् भानवे नमः।\nओऽऽम् हिरण्य-गर्भाय नमः। ओऽऽम् भास्-कराय नमः।\n\n[Chorus]\nओऽऽम् आदित्याय विद्-महे मार्-तण्डाय धीमहि।\nतन्-नः सूर्यः प्र-चोदयात्॥",
+  "duration": 80,
+  "bpm": 72,
+  "batch": 1,
+  "lang": "hi"
+ },
+ {
+  "name": "C_roman",
+  "caption": "Peaceful Indian devotional Sanskrit mantra chant, Hindu temple bhajan, slow and melodious, every syllable pronounced clearly in classical Sanskrit, long resonant Om. Warm rich deep Indian male vocal. Tanpura drone, bansuri flute, harmonium, soft tabla, temple bells. Calm, spiritual.",
+  "lyrics": "[Verse]\nOmmm Mitraaya Namah. Ommm Ravaye Namah.\nOmmm Sooryaaya Namah. Ommm Bhaanave Namah.\nOmmm Hiranya-garbhaaya Namah. Ommm Bhaas-karaaya Namah.\n\n[Chorus]\nOmmm Aadityaaya Vid-mahe Maar-tandaaya Dheemahi.\nTan-nah Sooryah Pra-chodayaat.",
+  "duration": 80,
+  "bpm": 72,
+  "batch": 1,
+  "lang": "hi"
+ },
+ {
+  "name": "D_simple_hindi",
+  "caption": "Peaceful Indian devotional Sanskrit mantra chant, Hindu temple bhajan, slow and melodious, every syllable pronounced clearly in classical Sanskrit, long resonant Om. Warm rich deep Indian male vocal. Tanpura drone, bansuri flute, harmonium, soft tabla, temple bells. Calm, spiritual.",
+  "lyrics": "[Verse]\nओम मित्राय नमह। ओम रवये नमह।\nओम सूर्याय नमह। ओम भानवे नमह।\nओम हिरण्य गर्भाय नमह। ओम भास्कराय नमह।\n\n[Chorus]\nओम आदित्याय विद महे मार तण्डाय धीमहि।\nतन नह सूर्यह प्रचोदयात।",
+  "duration": 80,
+  "bpm": 72,
+  "batch": 1,
+  "lang": "hi"
+ },
+ {
+  "name": "E_roman_lang_sa",
+  "caption": "Peaceful Indian devotional Sanskrit mantra chant, Hindu temple bhajan, slow and melodious, every syllable pronounced clearly in classical Sanskrit, long resonant Om. Warm rich deep Indian male vocal. Tanpura drone, bansuri flute, harmonium, soft tabla, temple bells. Calm, spiritual.",
+  "lyrics": "[Verse]\nOmmm Mitraaya Namah. Ommm Ravaye Namah.\nOmmm Sooryaaya Namah. Ommm Bhaanave Namah.\nOmmm Hiranya-garbhaaya Namah. Ommm Bhaas-karaaya Namah.\n\n[Chorus]\nOmmm Aadityaaya Vid-mahe Maar-tandaaya Dheemahi.\nTan-nah Sooryah Pra-chodayaat.",
+  "duration": 80,
+  "bpm": 72,
+  "batch": 1,
+  "lang": "sa"
+ }
+]
