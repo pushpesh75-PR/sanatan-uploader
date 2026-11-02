@@ -38,6 +38,16 @@ jobs:
           mkdir -p channel; cp /tmp/videos.json channel/videos.json; cp /tmp/channel.json channel/channel.json
           git add channel
           git diff --cached --quiet || { git commit -m "channel export"; git push origin main; }
+      - name: Competitor scan (task/competitors)
+        if: github.ref_name == 'task/competitors'
+        run: |
+          python competitors.py
+          cp channel/competitors.json /tmp/competitors.json
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git fetch origin main --depth=1; git checkout -B main origin/main
+          mkdir -p channel; cp /tmp/competitors.json channel/competitors.json
+          git add channel/competitors.json
+          git diff --cached --quiet || { git commit -m "competitor scan"; git push origin main; }
       - name: Fetch clips from URLs (task/fetch-<name>)
         if: startsWith(github.ref_name, 'task/fetch')
         run: |
