@@ -45,7 +45,7 @@ def service():
     from googleapiclient.discovery import build
     creds = Credentials(None, refresh_token=os.environ["YT_REFRESH_TOKEN"],
                         client_id=os.environ["YT_CLIENT_ID"], client_secret=os.environ["YT_CLIENT_SECRET"],
-                        token_uri="https://oauth2.googleapis.com/token", scopes=SCOPES)
+                        token_uri="https://oauth2.googleapis.com/token")
     return build("youtube", "v3", credentials=creds, cache_discovery=False)
 
 
