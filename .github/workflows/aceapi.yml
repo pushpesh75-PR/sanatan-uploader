@@ -1,0 +1,23 @@
+name: ACE Music cloud API
+on:
+  push:
+    branches: ["acegen/**"]
+permissions:
+  contents: write
+jobs:
+  g:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: sudo apt-get install -y jq >/dev/null; pip install -q faster-whisper
+      - env: { ACE_MUSIC_API_KEY: "${{ secrets.ACE_MUSIC_API_KEY }}" }
+        run: python aceapi/run.py aceapi/jobs.json
+      - if: always()
+        run: |
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          rm -f aceapi/s/acestep/scripts/config.json
+          git checkout --orphan aceout-tmp; git rm -rqf --cached . ; git add aceout; git commit -qm "ace out"
+          git push -f origin HEAD:refs/heads/aceout-${GITHUB_REF_NAME#acegen/}
