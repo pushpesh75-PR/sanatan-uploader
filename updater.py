@@ -1,5 +1,5 @@
 """Change title/description/tags/location of EXISTING videos.
-Reads changes/changes.json [{id, title?, description?, tags?, location?}] and applies ONLY ids listed in changes/approved.txt."""
+Reads changes/changes.json [{id, title?, description?, tags?, location?, publish_at_utc?, thumbnail? (file in changes/), playlists?}] and applies ONLY ids listed in changes/approved.txt."""
 import json, os, sys
 from uploader import service, retry, rec_details, log
 
@@ -28,6 +28,23 @@ def main():
         if c.get("location"):
             body["recordingDetails"] = rec_details(c["location"]); parts += ",recordingDetails"
         retry(lambda: yt.videos().update(part=parts, body=body).execute())
+        if c.get("publish_at_utc"):
+            retry(lambda: yt.videos().update(part="status", body={"id": c["id"], "status": {"privacyStatus": "private", "publishAt": c["publish_at_utc"],
+                  "selfDeclaredMadeForKids": False, "embeddable": True, "license": "youtube", "containsSyntheticMedia": True}}).execute())
+            log(f"  scheduled {c['publish_at_utc']}")
+        if c.get("thumbnail"):
+            try:
+                from googleapiclient.http import MediaFileUpload
+                retry(lambda: yt.thumbnails().set(videoId=c["id"], media_body=MediaFileUpload("changes/" + c["thumbnail"])).execute()); log("  thumbnail set")
+            except Exception as e:
+                print(f"::warning::{c['id']} thumbnail failed: {str(e)[:200]}")
+        for name in c.get("playlists", []):
+            try:
+                from uploader import playlist_id
+                pid = playlist_id(yt, name, {})
+                retry(lambda: yt.playlistItems().insert(part="snippet", body={"snippet": {"playlistId": pid, "resourceId": {"kind": "youtube#video", "videoId": c["id"]}}}).execute()); log("  playlist added")
+            except Exception as e:
+                print(f"::warning::{c['id']} playlist failed: {str(e)[:200]}")
         ok += 1; log(f"- ✅ {c['id']}: {body['snippet']['title']}")
     log(f"Done: {ok}/{len(todo)} videos updated.")
 
