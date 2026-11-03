@@ -10,9 +10,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
+          set -e
           N=${GITHUB_REF_NAME#gtts/}; mkdir -p ttsout
-          git fetch origin gttsout-$N 2>/dev/null && git checkout FETCH_HEAD -- ttsout 2>/dev/null || true
-          git reset -q; ls ttsout
+          if git ls-remote --exit-code origin "refs/heads/gttsout-$N" >/dev/null 2>&1; then
+            git fetch origin "gttsout-$N"
+            git checkout FETCH_HEAD -- ttsout
+            git reset -q
+            n=$(ls ttsout | wc -l)
+            echo "restored $n existing file(s) from gttsout-$N"
+            if [ "$n" -eq 0 ]; then echo "::error::gttsout-$N exists remotely but restore yielded 0 files, aborting"; exit 1; fi
+          else
+            echo "no existing gttsout-$N branch, starting fresh"
+          fi
+          ls ttsout
       - env: { GEMINI_API_KEY: "${{ secrets.GEMINI_API_KEY }}" }
         run: python3 gemini_tts.py ${GITHUB_REF_NAME#gtts/}
       - if: always()
