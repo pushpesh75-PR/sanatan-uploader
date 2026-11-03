@@ -88,6 +88,9 @@ jobs:
           mkdir -p channel; cp /tmp/ch/*.json channel/
           git add channel
           git diff --cached --quiet || { git commit -qm "channel profile"; git push origin main; }
+      - name: Unschedule (task/unschedule)
+        if: github.ref_name == 'task/unschedule'
+        run: python unschedule.py
       - name: Post comments (task/comments)
         if: github.ref_name == 'task/comments'
         run: python post_comments.py
