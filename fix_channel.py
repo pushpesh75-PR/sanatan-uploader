@@ -3,9 +3,42 @@ Writes channel/fix_report.json (incl. our own comments per video, for pinning)."
 import json, os
 from uploader import service, retry
 
-NEW_DESC = ("सनातन बीट्स — भक्ति का सुकून। 🙏 यहाँ आपको मिलेंगे nonstop भजन संग्रह, छठ और त्योहारों के पारंपरिक गीत, "
-            "हनुमान, शिव, राम और गणेश जी के भजन — घर की पूजा, सुबह-शाम और सफ़र में सुनने के लिए। "
-            "संगीत और दृश्य AI tools की मदद से बनाए गए हैं; बोल पारंपरिक या मौलिक हैं।")
+NEW_DESC = """🚩 सनातन बीट्स में आपका स्वागत है! सनातन धर्म की भक्ति को संगीत के ज़रिए घर-घर पहुँचाने का प्रयास — हर भजन, हर बीट में भक्ति की शक्ति। 🚩
+
+🔱 शिव भजन एवं DJ भजन
+🚩 श्री राम भजन
+🦚 हनुमान जी के DJ एवं पारंपरिक भजन
+🌺 छठ पूजा एवं त्योहार विशेष गीत (दिवाली, नवरात्रि)
+🔴 Nonstop भक्ति जुकबॉक्स — पूजा, सफ़र और सुबह-शाम सुनने के लिए
+
+|| जय श्री राम || हर हर महादेव || जय बजरंगबली || जय छठी मैया ||
+
+🔔 Subscribe करें: @thesanatanbeat
+
+संगीत व दृश्य AI tools से बनाए गए हैं; बोल पारंपरिक/मौलिक हैं।
+
+#SanatanBeats #Bhajan #HanumanDJ #ShivBhajan #RamBhajan #ChhathPujaSong #BhaktiDJ #NonstopBhajan #DevotionalSongs #JaiShreeRam #HarHarMahadev #BhaktiJukebox"""
+
+NEW_KEYWORDS_ADD = ["chhath puja song", "chhath geet 2026", "hanuman dj song", "shiv dj bhajan",
+                     "nonstop bhajan jukebox", "bhakti jukebox", "diwali dj song", "navratri dj song",
+                     "bhojpuri chhath geet", "long drive bhajan", "morning bhajan"]
+
+
+def merge_keywords(old, add):
+    """YouTube keywords field: space-separated, multi-word terms "quoted"; hard limit 500 chars."""
+    def tok(k):
+        return f'"{k}"' if " " in k else k
+    seen = set((old or "").split())
+    out = (old or "").strip()
+    for k in add:
+        t = tok(k)
+        if t in seen:
+            continue
+        cand = (out + " " + t).strip()
+        if len(cand) > 500:
+            break
+        out = cand; seen.add(t)
+    return out
 PLAYLISTS = {
     "छठ पूजा गीत 2026 | Chhath Puja Songs": (
         "छठी मैया के पारंपरिक गीत, सूर्य मंत्र और छठ पूजा की जानकारी — नहाय-खाय से उषा अर्घ्य तक। जय छठी मैया 🙏",
@@ -26,9 +59,13 @@ def main():
     ch = retry(lambda: yt.channels().list(part="brandingSettings,snippet", mine=True).execute())["items"][0]
     my_id = ch["id"]
     if "description" in ap:
-        b = ch["brandingSettings"]; b.setdefault("channel", {})["description"] = NEW_DESC
+        b = ch["brandingSettings"]; chb = b.setdefault("channel", {})
+        old_kw = chb.get("keywords", "")
+        chb["description"] = NEW_DESC
+        chb["keywords"] = merge_keywords(old_kw, NEW_KEYWORDS_ADD)
         retry(lambda: yt.channels().update(part="brandingSettings", body={"id": my_id, "brandingSettings": b}).execute())
         rep["done"].append("description updated")
+        rep["done"].append(f"keywords: {len(old_kw)} -> {len(chb['keywords'])} chars")
     pls, page = [], None
     while True:
         r = retry(lambda: yt.playlists().list(part="snippet,contentDetails", mine=True, maxResults=50, pageToken=page).execute())
