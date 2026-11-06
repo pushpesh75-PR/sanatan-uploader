@@ -1,3 +1,5 @@
-th_woman https://user-assets.renderplatform.com/preview/4b241b63-073a-4b0f-b14a-bd1e026d23e1.jpg
-th_surya https://user-assets.renderplatform.com/preview/b8bec5c2-b7a2-44b5-9adb-08eb9498246b.jpg
-n5 https://cdn-ny-b.videoexpress.ai/video/1793641638_6ae8cca6e4f27.mp4
+img9_spire https://user-assets.renderplatform.com/preview/d4a35a42-5cea-4559-884d-02824ab365a2.jpg
+img10_hanumanmurti https://user-assets.renderplatform.com/preview/bf47a8be-fe6f-46da-aa7b-dd45a5a1133d.jpg
+img11_diyas https://user-assets.renderplatform.com/preview/12be6d3f-c1af-4e33-90f1-c84fcb329a52.jpg
+img12_setu https://user-assets.renderplatform.com/preview/4e7da6cd-c21f-4847-bb58-4a2ce897a779.jpg
+thumbB1 https://user-assets.renderplatform.com/preview/f085a4cf-1ac0-4bcc-8bcd-af9d62788107.jpg
