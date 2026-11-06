@@ -1,3 +1,9 @@
-th_woman https://user-assets.renderplatform.com/preview/4b241b63-073a-4b0f-b14a-bd1e026d23e1.jpg
-th_surya https://user-assets.renderplatform.com/preview/b8bec5c2-b7a2-44b5-9adb-08eb9498246b.jpg
-n5 https://cdn-ny-b.videoexpress.ai/video/1793641638_6ae8cca6e4f27.mp4
+img1_mandir https://user-assets.renderplatform.com/preview/225b051f-f83d-4e2f-970a-881d371bb465.jpg
+img2_murti https://user-assets.renderplatform.com/preview/bccd7b9e-95a4-4047-a30b-8232c041eafa.jpg
+img3_ram https://user-assets.renderplatform.com/preview/62dbfadc-6b03-461c-9560-db4c7943e283.jpg
+img4_hanuman https://user-assets.renderplatform.com/preview/12011ffe-570c-4952-9e49-a385f38ff3e4.jpg
+img5_aarti https://user-assets.renderplatform.com/preview/f5a03319-6baa-441d-9744-024cdeeb7f3e.jpg
+img6_darbar https://user-assets.renderplatform.com/preview/c9dd5d39-61a9-416a-a09c-601b086add60.jpg
+img7_forest https://user-assets.renderplatform.com/preview/20f3196a-164a-4413-be08-f5a896327af7.jpg
+img8_deepotsav https://user-assets.renderplatform.com/preview/8f255404-04b0-497c-9519-62eb3770a66b.jpg
+thumb_ram https://user-assets.renderplatform.com/preview/9195477a-11f2-4214-b105-89d524ac0d70.jpg
