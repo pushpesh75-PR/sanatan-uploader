@@ -1,3 +1,3 @@
-th_woman https://user-assets.renderplatform.com/preview/4b241b63-073a-4b0f-b14a-bd1e026d23e1.jpg
-th_surya https://user-assets.renderplatform.com/preview/b8bec5c2-b7a2-44b5-9adb-08eb9498246b.jpg
-n5 https://cdn-ny-b.videoexpress.ai/video/1793641638_6ae8cca6e4f27.mp4
+thA_hero https://user-assets.renderplatform.com/preview/eb9acfed-ec35-491a-89f6-95413cf2bd6c.jpg
+thB_face https://user-assets.renderplatform.com/preview/ef650219-1fd4-45dd-8e5e-ebb5397922f7.jpg
+thC_ramhanuman https://user-assets.renderplatform.com/preview/80d99c73-c837-4f8a-88ad-fc2218463a8f.jpg
