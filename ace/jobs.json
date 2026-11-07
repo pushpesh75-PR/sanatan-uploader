@@ -1,10 +1,1 @@
-[
- {"name": "chhath_test",
-  "caption": "Traditional Bhojpuri Chhath folk devotional song, warm rich female village singer, soft dholak, harmonium, shehnai, manjira, gentle morning river ghat atmosphere, slow 80 BPM, emotional and pure",
-  "bpm": 80, "duration": 75,
-  "lyrics": "[verse]\nउगा हो सूरज देव, भइल अरघ के बेर\nछठी मइया के घाटे, जगमग दियरा के फेर\n[chorus]\nजय छठी मइया, जय हो सूरज देव\nजय छठी मइया, जय हो सूरज देव\n[verse]\nसूपवा में फल फूल, अँचरा में सनेह\nपरिवार के सुख माँगीं, माई देहु असीस\n[chorus]\nजय छठी मइया, जय हो सूरज देव"},
- {"name": "hanuman_test",
-  "caption": "Hindi devotional bhajan, deep warm male singer, harmonium, tabla, manjira, temple bells, chorus response, steady 90 BPM, peaceful and powerful",
-  "bpm": 90, "duration": 75,
-  "lyrics": "[verse]\nश्रीगुरु चरन सरोज रज, निज मनु मुकुरु सुधारि\nबरनउँ रघुबर बिमल जसु, जो दायकु फल चारि\n[chorus]\nजय हनुमान ज्ञान गुन सागर\nजय कपीस तिहुँ लोक उजागर\n[verse]\nराम दूत अतुलित बल धामा\nअंजनि पुत्र पवनसुत नामा\n[chorus]\nजय हनुमान ज्ञान गुन सागर\nजय कपीस तिहुँ लोक उजागर"}
-]
+[{"name":"lakshmi_bgm","caption":"Instrumental devotional Diwali background music, soft sitar, bansuri flute, harmonium, gentle tabla, temple bells, warm shimmering tanpura drone, peaceful festive Lakshmi puja evening, slow 70 BPM, no vocals, low and calm so a voiceover can sit on top","bpm":70,"duration":60,"lyrics":"[Instrumental]"}]
