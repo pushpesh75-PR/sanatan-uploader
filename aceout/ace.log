@@ -1,0 +1,133 @@
+[32m2026-11-07 22:03:29.493[0m | [34m[1mDEBUG   [0m | [36macestep.core.generation.handler.init_service_memory_basic[0m:[36m_apply_malloc_mmap_threshold[0m:[36m50[0m - [34m[1m[memory] Set M_MMAP_THRESHOLD=131072 for immediate OS reclaim of large frees[0m
+Failed to load /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so: Could not load this library: /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/torchao/_C_mxfp8.cpython-310-x86_64-linux-gnu.so
+Failed to load /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/torchao/_C_cutlass_90a.abi3.so: Could not load this library: /opt/hostedtoolcache/Python/3.11.18/x64/lib/python3.11/site-packages/torchao/_C_cutlass_90a.abi3.so
+[32m2026-11-07 22:03:32.478[0m | [33m[1mWARNING [0m | [36macestep.training.lokr_utils[0m:[36m<module>[0m:[36m24[0m - [33m[1mLyCORIS library not installed. LoKr training/inference unavailable. Install with: pip install lycoris-lora[0m
+[32m2026-11-07 22:03:32.482[0m | [33m[1mWARNING [0m | [36macestep.training.data_module[0m:[36m<module>[0m:[36m25[0m - [33m[1mLightning not installed. Training module will not be available.[0m
+[32m2026-11-07 22:03:32.495[0m | [33m[1mWARNING [0m | [36macestep.training.trainer[0m:[36m<module>[0m:[36m29[0m - [33m[1mLightning Fabric not installed. Training will use basic training loop.[0m
+[32m2026-11-07 22:03:32.495[0m | [33m[1mWARNING [0m | [36macestep.training.trainer[0m:[36m<module>[0m:[36m40[0m - [33m[1mbitsandbytes not installed. Using standard AdamW.[0m
+[32m2026-11-07 22:03:32.576[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m645[0m - [33m[1m================================================================================[0m
+[32m2026-11-07 22:03:32.576[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m646[0m - [33m[1m⚠️ GPU NOT DETECTED - DIAGNOSTIC INFORMATION[0m
+[32m2026-11-07 22:03:32.576[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m647[0m - [33m[1m================================================================================[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m725[0m - [33m[1m⚠️ PyTorch build type: CPU-only[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m726[0m - [33m[1m[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m727[0m - [33m[1mYou have installed a CPU-only version of PyTorch![0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m728[0m - [33m[1m[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m729[0m - [33m[1mFor NVIDIA GPUs:[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m730[0m - [33m[1m  pip install torch --index-url https://download.pytorch.org/whl/cu121[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m731[0m - [33m[1m[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m732[0m - [33m[1mFor AMD GPUs with ROCm:[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m733[0m - [33m[1m  Windows: See requirements-rocm.txt for detailed instructions[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m734[0m - [33m[1m  Linux: pip install torch --index-url https://download.pytorch.org/whl/rocm6.0[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m737[0m - [33m[1m[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m738[0m - [33m[1mFor more information, see README.md section 'AMD / ROCm GPUs'[0m
+[32m2026-11-07 22:03:32.577[0m | [33m[1mWARNING [0m | [36macestep.gpu_config[0m:[36m_log_gpu_diagnostic_info[0m:[36m740[0m - [33m[1m================================================================================[0m
+[32m2026-11-07 22:03:32.577[0m | [1mINFO    [0m | [36macestep.core.generation.handler.init_service_downloads[0m:[36m_ensure_models_present[0m:[36m32[0m - [1m[initialize_service] Main model not found, starting auto-download...[0m
+[32m2026-11-07 22:03:32.591[0m | [1mINFO    [0m | [36macestep.model_downloader[0m:[36m_smart_download[0m:[36m249[0m - [1m[Model Download] Auto-detected: HuggingFace Hub[0m
+[32m2026-11-07 22:03:32.591[0m | [1mINFO    [0m | [36macestep.model_downloader[0m:[36m_smart_download[0m:[36m252[0m - [1m[Model Download] Using HuggingFace Hub...[0m
+[32m2026-11-07 22:03:32.591[0m | [1mINFO    [0m | [36macestep.model_downloader[0m:[36m_download_from_huggingface_internal[0m:[36m180[0m - [1m[Model Download] Downloading from HuggingFace: ACE-Step/Ace-Step1.5 -> /tmp/ace/checkpoints[0m
+
+============================================================
+Main model not found. Starting automatic download...
+============================================================
+
+Downloading main model from ACE-Step/Ace-Step1.5...
+Destination: /tmp/ace/checkpoints
+This may take a while depending on your internet connection...
+Fetching 28 files:   0%|          | 0/28 [00:00<?, ?it/s]Fetching 28 files:  29%|██▊       | 8/28 [00:00<00:00, 20.30it/s]Fetching 28 files:  57%|█████▋    | 16/28 [00:00<00:00, 23.24it/s]Fetching 28 files:  86%|████████▌ | 24/28 [00:03<00:00,  7.13it/s]Fetching 28 files:  89%|████████▉ | 25/28 [00:20<00:02,  1.25it/s]Fetching 28 files:  93%|█████████▎| 26/28 [00:42<00:03,  1.65s/it]Fetching 28 files:  96%|█████████▋| 27/28 [00:49<00:01,  1.83s/it]Fetching 28 files: 100%|██████████| 28/28 [00:51<00:00,  1.85s/it]Fetching 28 files: 100%|██████████| 28/28 [00:51<00:00,  1.85s/it]
+[32m2026-11-07 22:04:25.099[0m | [34m[1mDEBUG   [0m | [36macestep.model_downloader[0m:[36m_sync_model_code_files[0m:[36m131[0m - [34m[1m[Model Sync] Synced configuration_acestep_v15.py -> /tmp/ace/checkpoints/acestep-v15-turbo/configuration_acestep_v15.py[0m
+[32m2026-11-07 22:04:25.305[0m | [34m[1mDEBUG   [0m | [36macestep.model_downloader[0m:[36m_sync_model_code_files[0m:[36m131[0m - [34m[1m[Model Sync] Synced modeling_acestep_v15_turbo.py -> /tmp/ace/checkpoints/acestep-v15-turbo/modeling_acestep_v15_turbo.py[0m
+[32m2026-11-07 22:04:25.305[0m | [1mINFO    [0m | [36macestep.model_downloader[0m:[36mdownload_main_model[0m:[36m489[0m - [1m[Model Download] Synced code files for acestep-v15-turbo: ['configuration_acestep_v15.py', 'modeling_acestep_v15_turbo.py'][0m
+[32m2026-11-07 22:04:25.305[0m | [1mINFO    [0m | [36macestep.core.generation.handler.init_service_downloads[0m:[36m_ensure_models_present[0m:[36m36[0m - [1m[initialize_service] Successfully downloaded from HuggingFace: ACE-Step/Ace-Step1.5[0m
+[32m2026-11-07 22:04:25.306[0m | [1mINFO    [0m | [36macestep.core.generation.handler.init_service_loader[0m:[36m_load_main_model_from_checkpoint[0m:[36m174[0m - [1m[initialize_service] Attempting to load model with attention implementation: sdpa[0m
+There are modules in AutoencoderOobleck that should be kept in float32: []. Casting directly with `to()` can lead to inconsistent results; set `torch_dtype` in `from_pretrained()` instead to keep these modules in float32.
+[32m2026-11-07 22:05:44.600[0m | [1mINFO    [0m | [36macestep.core.generation.handler.mlx_dit_init[0m:[36m_init_mlx_dit[0m:[36m22[0m - [1m[MLX-DiT] MLX not available on this platform; skipping.[0m
+[32m2026-11-07 22:05:44.614[0m | [1mINFO    [0m | [36macestep.core.generation.handler.mlx_vae_init[0m:[36m_init_mlx_vae[0m:[36m37[0m - [1m[MLX-VAE] MLX not available on this platform; skipping.[0m
+('[OK] Model initialized successfully on cpu\nMain model: /tmp/ace/checkpoints/acestep-v15-turbo\nVAE: /tmp/ace/checkpoints/vae\nText encoder: /tmp/ace/checkpoints/Qwen3-Embedding-0.6B\nDtype: torch.float32\nAttention: sdpa\nCompiled: False\nQuantization: Disabled\nOffload to CPU: False\nOffload DiT to CPU: False\nMLX DiT: Unavailable (PyTorch fallback)\nMLX VAE: Unavailable (PyTorch fallback)', True)
+init s 132
+[32m2026-11-07 22:05:44.635[0m | [1mINFO    [0m | [36macestep.inference[0m:[36mgenerate_music[0m:[36m662[0m - [1m[generate_music] LLM usage decision: thinking=False, use_cot_caption=True, use_cot_language=True, use_cot_metas=True, need_lm_for_cot=True, llm_initialized=False, use_lm=False[0m
+[32m2026-11-07 22:05:44.646[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music[0m:[36mgenerate_music[0m:[36m313[0m - [1m[generate_music] Turbo model detected: overriding guidance_scale 7.0 -> 1.0 (turbo does not use CFG).[0m
+[32m2026-11-07 22:05:44.647[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music[0m:[36mgenerate_music[0m:[36m329[0m - [1m[generate_music] Starting generation...[0m
+[32m2026-11-07 22:05:44.647[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music[0m:[36mgenerate_music[0m:[36m332[0m - [1m[generate_music] Preparing inputs...[0m
+[32m2026-11-07 22:05:44.686[0m | [1mINFO    [0m | [36macestep.core.generation.handler.progress[0m:[36m_start_diffusion_progress_estimator[0m:[36m179[0m - [1m[progress] No timing history — using fallback estimate (2.5s/step for batch_size=1).  This will self-calibrate after the first generation.[0m
+[32m2026-11-07 22:05:44.815[0m | [1mINFO    [0m | [36macestep.core.generation.handler.conditioning_text[0m:[36m_prepare_text_conditioning_inputs[0m:[36m119[0m - [1m
+======================================================================[0m
+[32m2026-11-07 22:05:44.816[0m | [1mINFO    [0m | [36macestep.core.generation.handler.conditioning_text[0m:[36m_prepare_text_conditioning_inputs[0m:[36m120[0m - [1m🔍 [DEBUG] DiT TEXT ENCODER INPUT (Inference)[0m
+[32m2026-11-07 22:05:44.816[0m | [1mINFO    [0m | [36macestep.core.generation.handler.conditioning_text[0m:[36m_prepare_text_conditioning_inputs[0m:[36m121[0m - [1m======================================================================[0m
+[32m2026-11-07 22:05:44.816[0m | [1mINFO    [0m | [36macestep.core.generation.handler.conditioning_text[0m:[36m_prepare_text_conditioning_inputs[0m:[36m122[0m - [1mtext_prompt:
+# Instruction
+Fill the audio semantic mask based on the given conditions:
+
+# Caption
+Instrumental devotional Diwali background music, soft sitar, bansuri flute, harmonium, gentle tabla, temple bells, warm shimmering tanpura drone, peaceful festive Lakshmi puja evening, slow 70 BPM, no vocals, low and calm so a voiceover can sit on top
+
+# Metas
+- bpm: 70
+- timesignature: N/A
+- keyscale: N/A
+- duration: 60 seconds
+<|endoftext|>
+[0m
+[32m2026-11-07 22:05:44.816[0m | [1mINFO    [0m | [36macestep.core.generation.handler.conditioning_text[0m:[36m_prepare_text_conditioning_inputs[0m:[36m123[0m - [1m======================================================================[0m
+[32m2026-11-07 22:05:44.816[0m | [1mINFO    [0m | [36macestep.core.generation.handler.conditioning_text[0m:[36m_prepare_text_conditioning_inputs[0m:[36m124[0m - [1mlyrics_text:
+# Languages
+hi
+
+# Lyric
+[Instrumental]<|endoftext|>[0m
+[32m2026-11-07 22:05:44.816[0m | [1mINFO    [0m | [36macestep.core.generation.handler.conditioning_text[0m:[36m_prepare_text_conditioning_inputs[0m:[36m125[0m - [1m======================================================================
+[0m
+[32m2026-11-07 22:05:44.866[0m | [1mINFO    [0m | [36macestep.core.generation.handler.conditioning_embed[0m:[36mpreprocess_batch[0m:[36m110[0m - [1m[preprocess_batch] Inferring prompt embeddings...[0m
+[32m2026-11-07 22:05:46.726[0m | [1mINFO    [0m | [36macestep.core.generation.handler.conditioning_embed[0m:[36mpreprocess_batch[0m:[36m113[0m - [1m[preprocess_batch] Inferring lyric embeddings...[0m
+[32m2026-11-07 22:05:46.727[0m | [1mINFO    [0m | [36macestep.core.generation.handler.service_generate_execute[0m:[36m_execute_service_generate_diffusion[0m:[36m173[0m - [1m[service_generate] Generating audio... (DiT backend: PyTorch (cpu))[0m
+[32m2026-11-07 22:07:19.641[0m | [1mINFO    [0m | [36macestep.core.generation.handler.service_generate_execute[0m:[36m_execute_service_generate_diffusion[0m:[36m276[0m - [1m[service_generate] DiT diffusion via PyTorch (cpu)...[0m
+[32m2026-11-07 22:07:32.818[0m | [1mINFO    [0m | [36macestep.models.common.dcw_correction[0m:[36m__init__[0m:[36m98[0m - [1m[DCW] Active — mode=double, scaler=0.0500, high_scaler=0.0200, wavelet='haar'[0m
+[32m2026-11-07 22:11:28.487[0m | [1mINFO    [0m | [36macestep.models.common.dcw_loader[0m:[36mget[0m:[36m84[0m - [1m[DCW] Built DWT1D for wavelet='haar' (low-pass filter taps=2, device=cpu, dtype=torch.float32).[0m
+[32m2026-11-07 22:15:24.259[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_prepare_generate_music_decode_state[0m:[36m42[0m - [1m[generate_music] Model generation completed. Decoding latents...[0m
+[32m2026-11-07 22:15:24.268[0m | [34m[1mDEBUG   [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_prepare_generate_music_decode_state[0m:[36m64[0m - [34m[1m[generate_music] pred_latents: torch.Size([1, 1500, 64]), dtype=torch.float32[0m
+[32m2026-11-07 22:15:24.268[0m | [34m[1mDEBUG   [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_prepare_generate_music_decode_state[0m:[36m65[0m - [34m[1m[generate_music] time_costs: {'encoder_time_cost': 13.17189908027649, 'diffusion_time_cost': 471.4276285171509, 'diffusion_per_step_time_cost': 58.92845356464386, 'total_time_cost': 484.59952759742737, 'offload_time_cost': 0.0}[0m
+[32m2026-11-07 22:15:24.286[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_decode_generate_music_pred_latents[0m:[36m127[0m - [1m[generate_music] Decoding latents with VAE...[0m
+[32m2026-11-07 22:15:24.307[0m | [34m[1mDEBUG   [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_decode_generate_music_pred_latents[0m:[36m136[0m - [34m[1m[generate_music] Before VAE decode: allocated=0.00GB, max=0.00GB[0m
+[32m2026-11-07 22:15:24.311[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_decode_generate_music_pred_latents[0m:[36m154[0m - [1m[generate_music] Effective free VRAM before VAE decode: 0.00 GB[0m
+[32m2026-11-07 22:15:24.311[0m | [33m[1mWARNING [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_decode_generate_music_pred_latents[0m:[36m159[0m - [33m[1m[generate_music] Only 0.00 GB free VRAM; auto-enabling CPU VAE decode[0m
+[32m2026-11-07 22:15:24.311[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_decode_generate_music_pred_latents[0m:[36m165[0m - [1m[generate_music] Moving VAE to CPU for decode (ACESTEP_VAE_ON_CPU=1)...[0m
+[32m2026-11-07 22:15:24.397[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_decode_generate_music_pred_latents[0m:[36m172[0m - [1m[generate_music] Using tiled VAE decode to reduce VRAM usage...[0m
+[32m2026-11-07 22:15:24.399[0m | [1mINFO    [0m | [36macestep.core.generation.handler.vae_decode[0m:[36mtiled_decode[0m:[36m56[0m - [1m[tiled_decode] chunk_size=256, offload_wav_to_cpu=True, latents_shape=torch.Size([1, 64, 1500])[0m
+[32m2026-11-07 22:21:33.379[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_decode_generate_music_pred_latents[0m:[36m190[0m - [1m[generate_music] Restoring VAE to original device after CPU decode path...[0m
+[32m2026-11-07 22:21:33.387[0m | [34m[1mDEBUG   [0m | [36macestep.core.generation.handler.generate_music_decode[0m:[36m_decode_generate_music_pred_latents[0m:[36m193[0m - [34m[1m[generate_music] After VAE decode: allocated=0.00GB, max=0.00GB[0m
+[32m2026-11-07 22:21:38.320[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music_payload[0m:[36m_build_generate_music_success_payload[0m:[36m38[0m - [1m[generate_music] VAE decode completed. Preparing audio tensors...[0m
+[32m2026-11-07 22:21:38.321[0m | [1mINFO    [0m | [36macestep.core.generation.handler.generate_music_payload[0m:[36m_build_generate_music_success_payload[0m:[36m50[0m - [1m[generate_music] Done! Generated 1 audio tensors.[0m
+[32m2026-11-07 22:21:38.514[0m | [1mINFO    [0m | [36macestep.inference[0m:[36mgenerate_music[0m:[36m1002[0m - [1m[Normalization] Audio 0 BEFORE: Peak=1.0000, Target=-1.0dB[0m
+[32m2026-11-07 22:21:38.568[0m | [1mINFO    [0m | [36macestep.inference[0m:[36mgenerate_music[0m:[36m1007[0m - [1m[Normalization] Audio 0 AFTER: Peak=0.8913[0m
+[32m2026-11-07 22:21:38.665[0m | [34m[1mDEBUG   [0m | [36macestep.audio_utils[0m:[36msave_audio[0m:[36m339[0m - [34m[1m[AudioSaver] Fallback soundfile Saved audio to /tmp/aceout/lakshmi_bgm/538ceb30-ce2e-d909-6951-d6e7cf099728.wav (wav, 48000Hz)[0m
+lakshmi_bgm ok ['/tmp/aceout/lakshmi_bgm/538ceb30-ce2e-d909-6951-d6e7cf099728.wav'] s 954
+exit 0
+MEM used 7794 avail 137
+MEM used 7785 avail 147
+MEM used 7749 avail 183
+MEM used 7768 avail 163
+MEM used 7787 avail 144
+MEM used 7793 avail 139
+MEM used 7730 avail 201
+MEM used 7766 avail 166
+MEM used 7766 avail 165
+MEM used 7782 avail 150
+MEM used 7770 avail 161
+MEM used 7687 avail 245
+MEM used 7509 avail 423
+MEM used 7499 avail 433
+MEM used 6781 avail 1150
+MEM used 7428 avail 504
+MEM used 7108 avail 824
+MEM used 7113 avail 819
+MEM used 7697 avail 234
+MEM used 6713 avail 1218
+MEM used 7241 avail 691
+MEM used 6841 avail 1091
+MEM used 6734 avail 1198
+MEM used 7363 avail 569
+MEM used 6826 avail 1105
+MEM used 6734 avail 1198
+MEM used 7435 avail 496
+MEM used 6709 avail 1222
+MEM used 7216 avail 715
+MEM used 6912 avail 1020
