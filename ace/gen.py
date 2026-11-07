@@ -21,7 +21,7 @@ for j in jobs:
     try:
         p = GenerationParams(caption=j["caption"], lyrics=j["lyrics"], vocal_language="hi", duration=j["duration"],
                              bpm=j.get("bpm"), thinking=use_llm, inference_steps=8)
-        c = GenerationConfig(batch_size=1, audio_format="mp3")
+        c = GenerationConfig(batch_size=1, audio_format="wav")
         r = generate_music(dit, llm, p, c, save_dir=os.path.join(out, j["name"]))
         print(j["name"], "ok" if r.success else r.error, [a.get("path") for a in (r.audios or [])], "s", round(time.time() - t1), flush=True)
     except Exception:
