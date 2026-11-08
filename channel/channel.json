@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "pSddC5hxEMErDjrmopXWOw5X5XU",
+  "etag": "Yg9_pNhpY4nFw25KmoRPjr8PzcM",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -33,21 +33,21 @@
    "country": "AE"
   },
   "statistics": {
-   "viewCount": "9342",
-   "subscriberCount": "33",
+   "viewCount": "11094",
+   "subscriberCount": "41",
    "hiddenSubscriberCount": false,
-   "videoCount": "37"
+   "videoCount": "43"
   },
   "topicDetails": {
    "topicIds": [
-    "/m/06bvp",
+    "/m/028sqc",
     "/m/04rlf",
-    "/m/028sqc"
+    "/m/06bvp"
    ],
    "topicCategories": [
-    "https://en.wikipedia.org/wiki/Religion",
+    "https://en.wikipedia.org/wiki/Music_of_Asia",
     "https://en.wikipedia.org/wiki/Music",
-    "https://en.wikipedia.org/wiki/Music_of_Asia"
+    "https://en.wikipedia.org/wiki/Religion"
    ]
   },
   "status": {
@@ -73,10 +73,17 @@
  },
  "playlists": [
   {
+   "id": "PLcH-krZ8dpfA",
+   "title": "राम धुन",
+   "description": "",
+   "count": 0,
+   "privacy": "public"
+  },
+  {
    "id": "PLOc7rHF5zl_g",
    "title": "दिवाली 2026 | Diwali 2026",
    "description": "",
-   "count": 2,
+   "count": 4,
    "privacy": "public"
   },
   {
