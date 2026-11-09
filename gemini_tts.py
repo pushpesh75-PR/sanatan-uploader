@@ -32,7 +32,7 @@ for f in sorted(glob.glob(f"tts/{name}/*.txt")):
         lines = lines[1:]
     out = "ttsout/" + os.path.basename(f)[:-4] + ".wav"
     if os.path.exists(out): print("skip", out); continue
-    sf = os.path.join(os.path.dirname(f), "style.txt")
+    sf = os.path.join(os.path.dirname(f), "style.sty")
     if os.path.exists(sf) and not os.path.basename(f).startswith("ns_"): STYLE = "Read the text that follows aloud, exactly as written, in Hindi. Delivery instructions (do not read these aloud): " + open(sf, encoding="utf-8").read().strip()
     pcm = tts("\n".join(lines).strip(), voice, model)
     if pcm is None:
