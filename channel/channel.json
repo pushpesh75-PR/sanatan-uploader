@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "gUplfugrtXItFH2g4L_Ocj-7G_Y",
+  "etag": "eM8tjSIa80oqnD1CahVNFs0pqgg",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -33,10 +33,10 @@
    "country": "AE"
   },
   "statistics": {
-   "viewCount": "117412",
+   "viewCount": "119688",
    "subscriberCount": "157",
    "hiddenSubscriberCount": false,
-   "videoCount": "46"
+   "videoCount": "47"
   },
   "topicDetails": {
    "topicIds": [
@@ -72,6 +72,13 @@
   }
  },
  "playlists": [
+  {
+   "id": "PLNtiiX5wKOF4",
+   "title": "छठ महापर्व | Chhath Puja 2026",
+   "description": "",
+   "count": 1,
+   "privacy": "public"
+  },
   {
    "id": "PLcH-krZ8dpfA",
    "title": "राम धुन",
