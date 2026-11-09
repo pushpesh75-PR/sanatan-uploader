@@ -15,4 +15,4 @@ for model in ["lyria-3-pro-preview", "lyria-3-clip-preview"]:
                 open(f"ttsout/bgm_{model}.bin", "wb").write(base64.b64decode(d["data"])); n += 1
         if n: break
     except Exception as e:
-        print(model, "ERR", getattr(e, "read", lambda: b"")().decode()[:400] or e)
+        m=str(getattr(e, "read", lambda: b"")().decode()[:600] or e); print(model,"ERR",m); open("ttsout/err.txt","a").write(model+" "+m+"\n")
