@@ -8,11 +8,14 @@ def tts(text, voice, model):
             "generationConfig": {"responseModalities": ["AUDIO"],
                                  "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice}}}}}
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-    for a in range(6):
+    for a in range(int(os.environ.get('TTS_TRIES','6'))):
         try:
             req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json", "x-goog-api-key": KEY})
             r = json.loads(urllib.request.urlopen(req, timeout=300).read())
-            return base64.b64decode(r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"])
+            try:
+                return base64.b64decode(r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"])
+            except Exception:
+                print("NOAUDIO raw:", json.dumps(r, ensure_ascii=False)[:700]); raise
         except Exception as e:
             msg = getattr(e, "read", lambda: b"")().decode()[:300] if hasattr(e, "read") else str(e)
             print("retry", a, msg)
@@ -30,8 +33,10 @@ for f in sorted(glob.glob(f"tts/{name}/*.txt")):
     out = "ttsout/" + os.path.basename(f)[:-4] + ".wav"
     if os.path.exists(out): print("skip", out); continue
     sf = os.path.join(os.path.dirname(f), "style.txt")
-    if os.path.exists(sf): STYLE = "Read the text that follows aloud, exactly as written, in Hindi. Delivery instructions (do not read these aloud): " + open(sf, encoding="utf-8").read().strip()
+    if os.path.exists(sf) and not os.path.basename(f).startswith("ns_"): STYLE = "Read the text that follows aloud, exactly as written, in Hindi. Delivery instructions (do not read these aloud): " + open(sf, encoding="utf-8").read().strip()
     pcm = tts("\n".join(lines).strip(), voice, model)
-    if pcm is None: break
+    if pcm is None:
+        if os.environ.get("TTS_CONT"): continue
+        break
     with wave.open(out, "wb") as w: w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000); w.writeframes(pcm)
     print(out, len(pcm) / 48000, "s"); time.sleep(4)
