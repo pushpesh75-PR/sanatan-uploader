@@ -14,9 +14,11 @@ def tts(text, voice, model):
             r = json.loads(urllib.request.urlopen(req, timeout=300).read())
             return base64.b64decode(r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"])
         except Exception as e:
-            msg = getattr(e, "read", lambda: b"")().decode()[:300] if hasattr(e, "read") else str(e)
+            msg = getattr(e, "read", lambda: b"")().decode()[:1800] if hasattr(e, "read") else str(e)
             print("retry", a, msg)
-            if "quota" in msg.lower() and "exceeded" in msg.lower(): return None
+            if "quota" in msg.lower() and "exceeded" in msg.lower():
+                if "perday" in msg.lower().replace(" ","").replace("_","") or "per day" in msg.lower(): return None
+                time.sleep(65); continue
             time.sleep(20 * (a + 1))
     print("::error::gemini quota/err, stopping; partial outputs kept"); return None
 name = sys.argv[1]; os.makedirs("ttsout", exist_ok=True)
