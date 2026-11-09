@@ -1,4 +1,0 @@
-bd1 https://cdn-ny-b.videoexpress.ai/video/1794228173_6af1bfcd13f60.mp4
-bd2 https://cdn-ny-b.videoexpress.ai/video/1794228245_6af1c0155f2a5.mp4
-bd3 https://cdn-ny-b.videoexpress.ai/video/1794228310_6af1c0562dbb9.mp4
-bd4 https://cdn-ny-b.videoexpress.ai/video/1794228357_6af1c085e7401.mp4
