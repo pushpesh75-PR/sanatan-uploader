@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "pbIWbWWU0vsg3jwlJsSKWQu2l6U",
+  "etag": "gUplfugrtXItFH2g4L_Ocj-7G_Y",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -34,7 +34,7 @@
   },
   "statistics": {
    "viewCount": "117412",
-   "subscriberCount": "156",
+   "subscriberCount": "157",
    "hiddenSubscriberCount": false,
    "videoCount": "46"
   },
@@ -83,7 +83,7 @@
    "id": "PLOc7rHF5zl_g",
    "title": "दिवाली 2026 | Diwali 2026",
    "description": "",
-   "count": 6,
+   "count": 7,
    "privacy": "public"
   },
   {
