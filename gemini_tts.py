@@ -8,7 +8,7 @@ def tts(text, voice, model):
             "generationConfig": {"responseModalities": ["AUDIO"],
                                  "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice}}}}}
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-    for a in range(int(os.environ.get('TTS_TRIES','6'))):
+    for a in range(int(os.environ.get('TTS_TRIES','2'))):
         try:
             req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json", "x-goog-api-key": KEY})
             r = json.loads(urllib.request.urlopen(req, timeout=300).read())
@@ -36,7 +36,7 @@ for f in sorted(glob.glob(f"tts/{name}/*.txt")):
     if os.path.exists(sf) and not os.path.basename(f).startswith("ns_"): STYLE = "Read the text that follows aloud, exactly as written, in Hindi. Delivery instructions (do not read these aloud): " + open(sf, encoding="utf-8").read().strip()
     pcm = tts("\n".join(lines).strip(), voice, model)
     if pcm is None:
-        if os.environ.get("TTS_CONT"): continue
+        if os.environ.get("TTS_CONT","1"): continue
         break
     with wave.open(out, "wb") as w: w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000); w.writeframes(pcm)
     print(out, len(pcm) / 48000, "s"); time.sleep(4)
