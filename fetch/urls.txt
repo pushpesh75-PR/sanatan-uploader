@@ -1,5 +1,0 @@
-f0 https://i.ytimg.com/vi/QwDhOxMy2RE/0.jpg
-f1 https://i.ytimg.com/vi/QwDhOxMy2RE/1.jpg
-f2 https://i.ytimg.com/vi/QwDhOxMy2RE/2.jpg
-f3 https://i.ytimg.com/vi/QwDhOxMy2RE/3.jpg
-t https://i.ytimg.com/vi/QwDhOxMy2RE/maxresdefault.jpg
