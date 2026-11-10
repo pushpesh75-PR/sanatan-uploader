@@ -6,7 +6,7 @@ from googleapiclient.discovery import build
 from uploader import service, retry, log
 
 DRY = os.environ.get("DRY_RUN") == "1"
-MAX_AGE_DAYS = 30
+MAX_AGE_DAYS = 3650
 STOP = set("kab hai h kaise kare karen kar ka ki ke ko me mein se hain kya kaun aur par pe the is to hota hota jata jaate jaaye rakhe rakha rakhte 2026 2025 video videos new live full hd".split())
 MARK = "🔎 लोग यह भी खोजते हैं (ताज़ा):"
 creds = Credentials(None, refresh_token=os.environ["YT_REFRESH_TOKEN"], client_id=os.environ["YT_CLIENT_ID"],

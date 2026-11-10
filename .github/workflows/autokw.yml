@@ -1,9 +1,9 @@
 name: Auto keywords
-# Daily 06:30 UAE (02:30 UTC): real YouTube search terms -> description/tags of videos <=30 days old.
+# Daily 03:00 UAE = 04:30 IST (23:00 UTC): real YouTube search terms -> description/tags of ALL public videos (long+short).
 # Push to branch autokw/test = dry run (prints only). Manual: Actions > Auto keywords > Run workflow.
 on:
   schedule:
-    - cron: "30 2 * * *"
+    - cron: "0 23 * * *"
   workflow_dispatch:
   push:
     branches: ["autokw/**"]
