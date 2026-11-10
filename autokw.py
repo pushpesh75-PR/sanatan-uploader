@@ -24,13 +24,18 @@ for v in vids:
     pub = datetime.date.fromisoformat(v["publishedAt"][:10])
     if (today - pub).days > MAX_AGE_DAYS: continue
     vid = v["id"]
-    try:
+    r = None
+    for attempt in range(3):
+      try:
         r = ya.reports().query(ids="channel==MINE", startDate=pub.isoformat(), endDate=today.isoformat(),
             dimensions="insightTrafficSourceDetail", metrics="views", sort="-views", maxResults=50,
-            filters=f"video=={vid};insightTrafficSourceType==YT_SEARCH").execute()
-    except Exception as e:
-        log(f"- {vid}: analytics error {str(e)[:150]}"); continue
+            filters=f"video=={vid};insightTrafficSourceType==YT_SEARCH").execute(); break
+      except Exception as e:
+        import time; time.sleep(3 * (attempt + 1)); err = str(e)[:120]
+    if r is None:
+        log(f"- {vid}: analytics error {err}"); continue
     rows = r.get("rows", [])
+    log(f"  {vid}: api rows={len(rows)} {rows[:3]}")
     st = state.setdefault(vid, {})
     core = toks(v["title"] + " " + " ".join(v.get("tags", [])))
     for term, views in rows:
