@@ -31,7 +31,7 @@ for v in vids:
             dimensions="insightTrafficSourceDetail", metrics="views", sort="-views", maxResults=50,
             filters=f"video=={vid};insightTrafficSourceType==YT_SEARCH").execute(); break
       except Exception as e:
-        import time; time.sleep(3 * (attempt + 1)); err = str(e)[:120]
+        import time; time.sleep(1 + attempt); err = str(e)[:120]
     if r is None:
         log(f"- {vid}: analytics error {err}"); continue
     rows = r.get("rows", [])
