@@ -1,35 +1,36 @@
-"""Gemini TTS: tts/<name>/*.txt -> ttsout/*.wav. First line '#gemini voice=<Name> model=<id>' optional.
-Style prompt (storyteller) is prepended. Key from env GEMINI_API_KEY only."""
-import os, sys, glob, json, base64, wave, time, urllib.request, re
+import os, sys, json, time, urllib.request
 KEY = os.environ["GEMINI_API_KEY"]
-STYLE = os.environ.get("TTS_STYLE", "Read aloud in Hindi like a warm, emotional, experienced Indian kathavachak telling a devotional story to a family: natural flowing pace, gentle pauses at commas and full stops, soft and heartfelt, never robotic, never rushed:")
-def tts(text, voice, model):
-    body = {"contents": [{"parts": [{"text": STYLE + "\n\n" + text}]}],
-            "generationConfig": {"responseModalities": ["AUDIO"],
-                                 "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig": {"voiceName": voice}}}}}
+os.makedirs("ttsout", exist_ok=True)
+out = []
+def call(model, n=1):
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-    for a in range(6):
-        try:
-            req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json", "x-goog-api-key": KEY})
-            r = json.loads(urllib.request.urlopen(req, timeout=300).read())
-            return base64.b64decode(r["candidates"][0]["content"]["parts"][0]["inlineData"]["data"])
-        except Exception as e:
-            msg = getattr(e, "read", lambda: b"")().decode()[:300] if hasattr(e, "read") else str(e)
-            print("retry", a, msg)
-            if "quota" in msg.lower() and "exceeded" in msg.lower(): return None
-            time.sleep(20 * (a + 1))
-    print("::error::gemini quota/err, stopping; partial outputs kept"); return None
-name = sys.argv[1]; os.makedirs("ttsout", exist_ok=True)
-for f in sorted(glob.glob(f"tts/{name}/*.txt")):
-    lines = open(f, encoding="utf-8").read().split("\n")
-    voice, model = "Charon", "gemini-3.1-flash-tts-preview"
-    if lines[0].startswith("#"):
-        m = re.search(r"voice=(\S+)", lines[0]); voice = m.group(1) if m else voice
-        m = re.search(r"model=(\S+)", lines[0]); model = m.group(1) if m else model
-        lines = lines[1:]
-    out = "ttsout/" + os.path.basename(f)[:-4] + ".wav"
-    if os.path.exists(out): print("skip", out); continue
-    pcm = tts("\n".join(lines).strip(), voice, model)
-    if pcm is None: break
-    with wave.open(out, "wb") as w: w.setnchannels(1); w.setsampwidth(2); w.setframerate(24000); w.writeframes(pcm)
-    print(out, len(pcm) / 48000, "s"); time.sleep(4)
+    body = {"contents": [{"parts": [{"text": "Say ok"}]}], "generationConfig": {"maxOutputTokens": 5}}
+    try:
+        req = urllib.request.Request(url, json.dumps(body).encode(), {"Content-Type": "application/json", "x-goog-api-key": KEY})
+        urllib.request.urlopen(req, timeout=60).read(); return 200, ""
+    except Exception as e:
+        b = getattr(e, "read", lambda: b"")().decode()[:600] if hasattr(e, "read") else str(e)[:300]
+        return getattr(e, "code", 0), b.replace(KEY, "***")
+model = None
+try:
+    req = urllib.request.Request("https://generativelanguage.googleapis.com/v1beta/models?pageSize=200", headers={"x-goog-api-key": KEY})
+    ms = [m["name"].split("/")[-1] for m in json.loads(urllib.request.urlopen(req, timeout=60).read())["models"] if "generateContent" in m.get("supportedGenerationMethods", [])]
+    out.append("models: " + ",".join(ms[:60]))
+    for pref in ("flash-lite", "flash"):
+        c = [m for m in ms if pref in m and "tts" not in m and "image" not in m and "live" not in m and "audio" not in m]
+        if c: model = c[0]; break
+except Exception as e:
+    out.append("list err " + str(e)[:200])
+out.append("model " + str(model))
+ok = 0; fails = []
+for i in range(40):
+    s, b = call(model)
+    if s == 200: ok += 1
+    else: fails.append((i, s, b[:400]))
+    time.sleep(0.15)
+out.append(f"ok={ok} of 40")
+for f in fails[:3]: out.append("FAIL " + str(f))
+txt = "\n".join(out)
+out.append("free_tier_in_errors=" + str(any(("free" in f[2].lower()) for f in fails)))
+open("ttsout/keycheck.txt", "w").write("\n".join(out) + "\n")
+print("\n".join(out))
