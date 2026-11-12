@@ -1,0 +1,18 @@
+name: Keyword research
+on:
+  push:
+    branches: ["kw/**"]
+permissions:
+  contents: write
+jobs:
+  kw:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          N="${GITHUB_REF_NAME#kw/}"
+          python3 kwr/kw.py "$N"
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          git checkout --orphan "kwout-$N"; git rm -rf --cached . -q
+          git add -f "kwr/$N/out.json"; git commit -qm "kw out"; git push -f origin "kwout-$N"
