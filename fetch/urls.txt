@@ -1,8 +1,0 @@
-s1 https://cdn-ny-b.videoexpress.ai/video/1794693316_6af8d8c455dcd.mp4
-s2 https://cdn-ny-b.videoexpress.ai/video/1794693355_6af8d8eb2d7e5.mp4
-s3 https://cdn-ny-b.videoexpress.ai/video/1794693384_6af8d908a666d.mp4
-s4 https://cdn-ny-b.videoexpress.ai/video/1794693417_6af8d92922e3d.mp4
-s5 https://cdn-ny-b.videoexpress.ai/video/1794693452_6af8d94c8c1ee.mp4
-s6 https://cdn-ny-b.videoexpress.ai/video/1794693484_6af8d96c8b44a.mp4
-s7 https://cdn-ny-b.videoexpress.ai/video/1794693513_6af8d9898fcd9.mp4
-s8 https://cdn-ny-b.videoexpress.ai/video/1794693541_6af8d9a56e38a.mp4
