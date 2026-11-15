@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "-zOJ9p7NdvDxASLmXvIgD77Q9NM",
+  "etag": "5_4zFw2qK7CUbJjQEtMyp8xbprk",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -40,14 +40,14 @@
   },
   "topicDetails": {
    "topicIds": [
-    "/m/04rlf",
+    "/m/06bvp",
     "/m/028sqc",
-    "/m/06bvp"
+    "/m/04rlf"
    ],
    "topicCategories": [
-    "https://en.wikipedia.org/wiki/Music",
+    "https://en.wikipedia.org/wiki/Religion",
     "https://en.wikipedia.org/wiki/Music_of_Asia",
-    "https://en.wikipedia.org/wiki/Religion"
+    "https://en.wikipedia.org/wiki/Music"
    ]
   },
   "status": {
@@ -76,7 +76,7 @@
    "id": "PLdWXp8q8BJjk",
    "title": "देवउठनी एकादशी | तुलसी विवाह 2026",
    "description": "",
-   "count": 1,
+   "count": 3,
    "privacy": "public"
   },
   {
