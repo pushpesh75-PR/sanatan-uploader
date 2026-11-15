@@ -1,2 +1,0 @@
-cc_a https://user-assets.renderplatform.com/preview/0bb84eff-a031-4a4d-a2a4-e00e807ece18.jpg
-cc_b https://user-assets.renderplatform.com/preview/cdff1e1a-7ba9-444a-a7f2-0f5625156f32.jpg
