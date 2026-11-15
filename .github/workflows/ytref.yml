@@ -1,0 +1,39 @@
+name: Reference shorts analysis
+on:
+  push:
+    branches: ["ytref/**"]
+permissions:
+  contents: write
+jobs:
+  y:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q -U yt-dlp faster-whisper && sudo apt-get install -y ffmpeg >/dev/null
+      - run: |
+          mkdir -p out
+          while read -r label id; do [ -z "$id" ] && continue
+            yt-dlp -f "bv*[height<=720]+ba/b[height<=720]/b" --merge-output-format mp4 -o "out/${label}.%(ext)s" "https://www.youtube.com/shorts/$id" 2>&1 | tail -3 || echo "fail $label"
+          done < ytref/ids.txt
+          ls -la out
+      - run: |
+          python - <<'P'
+          import glob,json,subprocess,os
+          from faster_whisper import WhisperModel
+          m=WhisperModel("small",compute_type="int8")
+          res={}
+          for f in sorted(glob.glob("out/*.mp4")):
+              n=os.path.basename(f)[:-4]
+              dur=float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0",f]))
+              segs,info=m.transcribe(f,language="hi",vad_filter=True)
+              res[n]={"dur":dur,"segs":[[round(s.start,1),round(s.end,1),s.text.strip()] for s in segs]}
+              subprocess.run(["ffmpeg","-v","error","-y","-i",f,"-vf","fps=1/4,scale=216:-1,tile=8x2","-frames:v","1",f"out/{n}_sheet.jpg"])
+          json.dump(res,open("out/transcripts.json","w"),ensure_ascii=False,indent=1)
+          P
+      - if: always()
+        run: |
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          N=${GITHUB_REF_NAME#ytref/}
+          rm -f out/*.mp4
+          git checkout --orphan tmp; git rm -rqf --cached .; git add out; git commit -qm "ref $N" || true; git push -f origin HEAD:refs/heads/refout-$N
