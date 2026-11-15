@@ -20,6 +20,7 @@ def tts(text, voice, model):
             time.sleep(20 * (a + 1))
     print("::error::gemini quota/err, stopping; partial outputs kept"); return None
 name = sys.argv[1]; os.makedirs("ttsout", exist_ok=True)
+if os.path.exists(f"tts/{name}/STYLE.txt"): STYLE = open(f"tts/{name}/STYLE.txt", encoding="utf-8").read().strip()
 for f in sorted(glob.glob(f"tts/{name}/*.txt")):
     lines = open(f, encoding="utf-8").read().split("\n")
     voice, model = "Charon", "gemini-3.1-flash-tts-preview"
