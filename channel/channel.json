@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "WGCqA_fhzVc1wARM-jlgITOso5Y",
+  "etag": "iuPTloF8BaBNckJnT9isyd3fYtA",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -33,8 +33,8 @@
    "country": "AE"
   },
   "statistics": {
-   "viewCount": "130972",
-   "subscriberCount": "176",
+   "viewCount": "131435",
+   "subscriberCount": "177",
    "hiddenSubscriberCount": false,
    "videoCount": "63"
   },
@@ -72,6 +72,20 @@
   }
  },
  "playlists": [
+  {
+   "id": "PLDmaRjVbwXO4",
+   "title": "कार्तिक पूर्णिमा और देव दीपावली 2026",
+   "description": "",
+   "count": 1,
+   "privacy": "public"
+  },
+  {
+   "id": "PLeIW1cQBPmFI",
+   "title": "माँ लक्ष्मी | Maa Lakshmi Shorts",
+   "description": "",
+   "count": 2,
+   "privacy": "public"
+  },
   {
    "id": "PLdWXp8q8BJjk",
    "title": "देवउठनी एकादशी | तुलसी विवाह 2026",
