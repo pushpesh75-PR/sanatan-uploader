@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "-9YR8Mim7TSl5whlM_XYiK5NRLE",
+  "etag": "5_4zFw2qK7CUbJjQEtMyp8xbprk",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -33,7 +33,7 @@
    "country": "AE"
   },
   "statistics": {
-   "viewCount": "130479",
+   "viewCount": "130972",
    "subscriberCount": "176",
    "hiddenSubscriberCount": false,
    "videoCount": "61"
