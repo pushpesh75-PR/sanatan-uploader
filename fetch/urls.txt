@@ -1,3 +1,0 @@
-cc_test https://cdn-ny-b.videoexpress.ai/video/1794765439_6af9f27f29825.mp4
-h04_4b https://cdn-ny-b.videoexpress.ai/video/1794764793_6af9eff90e658.mp4
-h04_5b https://cdn-ny-b.videoexpress.ai/video/1794764820_6af9f014088a9.mp4
