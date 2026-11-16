@@ -1,7 +1,0 @@
-s10a_kartikeya_child https://user-assets.renderplatform.com/preview/31bdb458-df28-4497-a342-306cc30c6542.jpg
-s10b_kartikeya_senapati https://user-assets.renderplatform.com/preview/8f43a0bc-af6c-4b78-8855-cff80aef2ed4.jpg
-s10c_tarakasur_vadh https://user-assets.renderplatform.com/preview/80cf55c6-6a44-4f99-8d3b-b5e1182cd0ce.jpg
-s10d_tarakasur_fallen https://user-assets.renderplatform.com/preview/58fe216c-3adf-42ef-8496-0b46c1434de9.jpg
-s10e_three_sons https://user-assets.renderplatform.com/preview/ce2080e7-b312-4673-b9e0-129717592808.jpg
-s10f_brothers_enraged https://user-assets.renderplatform.com/preview/6767222d-52be-4f75-8b8d-f43187bda2d7.jpg
-s10g_brothers_tapasya https://user-assets.renderplatform.com/preview/7d41bf42-b96e-4d31-8b2c-f40ba75c86e4.jpg
