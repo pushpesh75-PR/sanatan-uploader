@@ -1,6 +1,0 @@
-s05a_new_story_scroll https://user-assets.renderplatform.com/preview/aff7ce71-527a-4cbe-b4a1-663bd543bc00.jpg
-s05b_tarakasur_portrait https://user-assets.renderplatform.com/preview/a90df970-1e3e-4877-99af-79f0ff6bb8ce.jpg
-s05c_brahma_boon https://user-assets.renderplatform.com/preview/b953589a-c4bc-4df8-a3cd-54bd45cd4fc4.jpg
-s05d_tarakasur_confident https://user-assets.renderplatform.com/preview/d4fbfd2f-da4d-4b7e-8cb4-3b7e2dd10e72.jpg
-s05e_sati_fire https://user-assets.renderplatform.com/preview/3845f363-f46f-4863-b105-d46f7f13bf0f.jpg
-s05f_shiva_tapasya https://user-assets.renderplatform.com/preview/66266181-bc97-4de3-8f1d-46db209761fe.jpg
