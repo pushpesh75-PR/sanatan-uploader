@@ -14,6 +14,13 @@ def main():
                 items += [{"item": i["id"], "vid": i["contentDetails"]["videoId"], "title": i["snippet"]["title"], "pos": i["snippet"].get("position")} for i in q.get("items", [])]
                 pg = q.get("nextPageToken")
                 if not pg: break
+            ids = [i["vid"] for i in items]
+            dur = {}
+            for k in range(0, len(ids), 50):
+                for v in retry(lambda: yt.videos().list(part="contentDetails,snippet,status", id=",".join(ids[k:k+50])).execute()).get("items", []):
+                    dur[v["id"]] = (v["contentDetails"]["duration"], v["status"]["privacyStatus"], v["snippet"]["title"])
+            for i in items:
+                i["dur"], i["privacy"], i["title"] = dur.get(i["vid"], (None, None, i["title"]))
             out.append({"id": p["id"], "title": p["snippet"]["title"], "description": p["snippet"].get("description", ""),
                         "privacy": p["status"]["privacyStatus"], "count": p["contentDetails"]["itemCount"], "items": items})
         page = r.get("nextPageToken")
