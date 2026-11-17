@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "aAlmTNkrH0iS7tfBydRdSFl8elQ",
+  "etag": "nB_fZC6Ufs4xANPBggfZrWQCWgA",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -33,21 +33,21 @@
    "country": "AE"
   },
   "statistics": {
-   "viewCount": "133028",
+   "viewCount": "135050",
    "subscriberCount": "177",
    "hiddenSubscriberCount": false,
-   "videoCount": "65"
+   "videoCount": "66"
   },
   "topicDetails": {
    "topicIds": [
-    "/m/04rlf",
+    "/m/06bvp",
     "/m/028sqc",
-    "/m/06bvp"
+    "/m/04rlf"
    ],
    "topicCategories": [
-    "https://en.wikipedia.org/wiki/Music",
+    "https://en.wikipedia.org/wiki/Religion",
     "https://en.wikipedia.org/wiki/Music_of_Asia",
-    "https://en.wikipedia.org/wiki/Religion"
+    "https://en.wikipedia.org/wiki/Music"
    ]
   },
   "status": {
