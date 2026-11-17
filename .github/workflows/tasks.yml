@@ -105,6 +105,9 @@ jobs:
       - name: Unschedule (task/unschedule)
         if: github.ref_name == 'task/unschedule'
         run: python unschedule.py
+      - name: Set privacy (task/setprivacy)
+        if: github.ref_name == 'task/setprivacy'
+        run: python setprivacy.py
       - name: Post comments (task/comments)
         if: github.ref_name == 'task/comments'
         run: python post_comments.py
