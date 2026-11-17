@@ -1,0 +1,27 @@
+name: Fetch our own video (QC, low-res, temporary)
+on:
+  push:
+    branches: ["ytdlqc/**"]
+permissions:
+  contents: write
+jobs:
+  y:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q -U yt-dlp && sudo apt-get install -y ffmpeg >/dev/null
+      - run: |
+          ID=$(cat ytdlqc/id.txt)
+          mkdir -p ytqcout
+          yt-dlp -f "bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480]" \
+            --merge-output-format mp4 -o "ytqcout/qc.mp4" "https://www.youtube.com/watch?v=$ID" 2>&1 | tail -40
+          ls -la ytqcout
+          split -b 90m -d -a 3 ytqcout/qc.mp4 ytqcout/qc.mp4.part
+          rm ytqcout/qc.mp4
+          ls -la ytqcout
+      - if: always()
+        run: |
+          git config user.name "uploader-bot"; git config user.email "uploader-bot@users.noreply.github.com"
+          N=${GITHUB_REF_NAME#ytdlqc/}
+          git checkout --orphan tmp; git rm -rqf --cached .; git add ytqcout; git commit -qm "qc video $N" || true
+          git push -f origin HEAD:refs/heads/ytqcout-$N
