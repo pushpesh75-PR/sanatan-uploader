@@ -70,7 +70,7 @@
    "privacy": "private",
    "publishAt": null,
    "duration": "PT28M57S",
-   "views": 1,
+   "views": 2,
    "likes": 0,
    "location": "India"
   },
@@ -129,7 +129,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT40S",
-   "views": 80,
+   "views": 79,
    "likes": 5,
    "location": "India"
   },
@@ -330,7 +330,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT1M11S",
-   "views": 2083,
+   "views": 2082,
    "likes": 24,
    "location": "India"
   },
@@ -438,7 +438,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT1M9S",
-   "views": 867,
+   "views": 866,
    "likes": 13,
    "location": "India"
   },
@@ -1069,7 +1069,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT1M2S",
-   "views": 98872,
+   "views": 98870,
    "likes": 868,
    "location": "India"
   },
