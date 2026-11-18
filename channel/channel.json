@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "xGVyZvJTOFenOfVoAORzuNyueDY",
+  "etag": "Fflj196fflmUvGnYieSIU0xoiOM",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -40,14 +40,14 @@
   },
   "topicDetails": {
    "topicIds": [
-    "/m/04rlf",
+    "/m/06bvp",
     "/m/028sqc",
-    "/m/06bvp"
+    "/m/04rlf"
    ],
    "topicCategories": [
-    "https://en.wikipedia.org/wiki/Music",
+    "https://en.wikipedia.org/wiki/Religion",
     "https://en.wikipedia.org/wiki/Music_of_Asia",
-    "https://en.wikipedia.org/wiki/Religion"
+    "https://en.wikipedia.org/wiki/Music"
    ]
   },
   "status": {
@@ -72,6 +72,13 @@
   }
  },
  "playlists": [
+  {
+   "id": "PLfxPG5yhvnek",
+   "title": "श्रीकृष्ण | Krishna Shorts",
+   "description": "",
+   "count": 1,
+   "privacy": "public"
+  },
   {
    "id": "PLDmaRjVbwXO4",
    "title": "कार्तिक पूर्णिमा और देव दीपावली 2026",
