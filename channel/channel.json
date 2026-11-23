@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "jHthUYWS__IvtaJuhDnHAcbrguw",
+  "etag": "soEiU4cYYcJYdOJybrsoM5w6_xA",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -33,10 +33,10 @@
    "country": "AE"
   },
   "statistics": {
-   "viewCount": "138594",
+   "viewCount": "138725",
    "subscriberCount": "187",
    "hiddenSubscriberCount": false,
-   "videoCount": "77"
+   "videoCount": "78"
   },
   "topicDetails": {
    "topicIds": [
@@ -92,7 +92,7 @@
    "id": "PLDmaRjVbwXO4",
    "title": "कार्तिक पूर्णिमा और देव दीपावली 2026",
    "description": "",
-   "count": 1,
+   "count": 2,
    "privacy": "public"
   },
   {
