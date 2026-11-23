@@ -1,4 +1,0 @@
-kb_face https://user-assets.renderplatform.com/preview/1abbdf41-6352-413e-b920-b31d78ede976.jpg
-brahmanda https://user-assets.renderplatform.com/preview/97fa0378-a88a-41ed-a647-eec48c7fe435.jpg
-abhaya https://user-assets.renderplatform.com/preview/d5252d21-1ca7-4161-a8c7-8c7525d31c5c.jpg
-roar_face2 https://user-assets.renderplatform.com/preview/993a155e-9813-47c1-8625-79ffa06089b6.jpg
