@@ -1,7 +1,0 @@
-clipA https://cdn-ny-b.videoexpress.ai/video/1795626894_6b07178ebeac4.mp4
-p1_thali https://user-assets.renderplatform.com/preview/92186fb3-9664-4453-bf8f-b98c1df37f4b.jpg
-p2_katha https://user-assets.renderplatform.com/preview/1bab8510-8e35-488a-8835-ceb0eff4cb77.jpg
-p3_aarti https://user-assets.renderplatform.com/preview/d31776ff-a33c-4eba-9326-1b363b0a929b.jpg
-p4_moon https://user-assets.renderplatform.com/preview/7c72ab68-d2bc-45b7-89a6-ab8812cb2cee.jpg
-p5_city https://user-assets.renderplatform.com/preview/3ca1e62d-c926-49e2-9df8-557d8b1333b4.jpg
-p0_hook https://user-assets.renderplatform.com/preview/7882143d-7ae7-4bb2-b8ab-6254bc6ade5e.jpg
