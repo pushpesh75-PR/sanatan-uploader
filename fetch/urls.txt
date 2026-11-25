@@ -1,3 +1,7 @@
-th_woman https://user-assets.renderplatform.com/preview/4b241b63-073a-4b0f-b14a-bd1e026d23e1.jpg
-th_surya https://user-assets.renderplatform.com/preview/b8bec5c2-b7a2-44b5-9adb-08eb9498246b.jpg
-n5 https://cdn-ny-b.videoexpress.ai/video/1793641638_6ae8cca6e4f27.mp4
+clipA_hook https://cdn-ny-b.videoexpress.ai/video/1795602943_6b06b9ffdbc69.mp4
+clipB_gita https://cdn-ny-b.videoexpress.ai/video/1795603034_6b06ba5a7a7e7.mp4
+p1_ghat https://user-assets.renderplatform.com/preview/76ed4a9a-a0bf-45a8-b028-f23607aac7e7.jpg
+p2_altar https://user-assets.renderplatform.com/preview/34975c72-80f2-440d-be05-c37f07bf9319.jpg
+p3_tulsi https://user-assets.renderplatform.com/preview/8d4adc6c-362e-4af4-8708-086650753bd3.jpg
+p4_gita https://user-assets.renderplatform.com/preview/068ff48e-176e-48f1-b10d-99b4811647e3.jpg
+p5_food https://user-assets.renderplatform.com/preview/46852b03-df65-4327-837e-ab021cb7049e.jpg
