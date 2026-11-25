@@ -2,7 +2,7 @@
 Style prompt (storyteller) is prepended. Key from env GEMINI_API_KEY only."""
 import os, sys, glob, json, base64, wave, time, urllib.request, re
 KEY = os.environ["GEMINI_API_KEY"]
-STYLE = os.environ.get("TTS_STYLE", "Read aloud in Hindi like a warm, emotional, experienced Indian kathavachak telling a devotional story to a family: natural flowing pace, gentle pauses at commas and full stops, soft and heartfelt, never robotic, never rushed:")
+STYLE = os.environ.get("TTS_STYLE", "Read aloud in Hindi like a confident, warm Indian storyteller speaking naturally to one person: natural conversational pace, not slow, clear and energetic, short natural pauses at full stops, never robotic, never dragging:")
 def tts(text, voice, model):
     body = {"contents": [{"parts": [{"text": STYLE + "\n\n" + text}]}],
             "generationConfig": {"responseModalities": ["AUDIO"],
