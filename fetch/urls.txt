@@ -1,9 +1,0 @@
-kb_brahma https://user-assets.renderplatform.com/preview/21c756aa-0b5a-462e-ae49-c5b8c51b2be8.jpg
-kb_shiva https://user-assets.renderplatform.com/preview/55c87f1f-82e5-4552-a163-502036473c98.jpg
-kb_emerge https://user-assets.renderplatform.com/preview/dda256d0-81fe-4100-8fff-748aff1dcb2a.jpg
-kb_walk https://user-assets.renderplatform.com/preview/bc35087d-df46-4ad4-941d-e9ad1ab89e12.jpg
-kb_temple https://user-assets.renderplatform.com/preview/d64cf6ae-e14f-4081-8992-a54c72d1a6af.jpg
-kb_diya https://user-assets.renderplatform.com/preview/e1dd2445-963f-49a3-806a-12392fd49c30.jpg
-kb_offer https://user-assets.renderplatform.com/preview/dbe9a993-7005-43fe-b998-ac6fa12e82b5.jpg
-kb_mala https://user-assets.renderplatform.com/preview/fcc67e8a-5ad6-4b85-9098-e8d138f88439.jpg
-kb_dog https://user-assets.renderplatform.com/preview/27ebe69f-b8a0-40d1-823d-fde6a1289599.jpg
