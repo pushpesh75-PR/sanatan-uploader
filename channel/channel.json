@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "soEiU4cYYcJYdOJybrsoM5w6_xA",
+  "etag": "ip9TktYzkxl7jWqvGCMmlE45Q6I",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -33,10 +33,10 @@
    "country": "AE"
   },
   "statistics": {
-   "viewCount": "138725",
-   "subscriberCount": "187",
+   "viewCount": "140335",
+   "subscriberCount": "189",
    "hiddenSubscriberCount": false,
-   "videoCount": "78"
+   "videoCount": "85"
   },
   "topicDetails": {
    "topicIds": [
@@ -74,6 +74,27 @@
   }
  },
  "playlists": [
+  {
+   "id": "PLHulKaP8frJc",
+   "title": "संकष्टी चतुर्थी 2026 | Sankashti Chaturthi",
+   "description": "",
+   "count": 1,
+   "privacy": "public"
+  },
+  {
+   "id": "PLPD3i_scHPVw",
+   "title": "मार्गशीर्ष 2026 | Margashirsha Maas",
+   "description": "",
+   "count": 1,
+   "privacy": "public"
+  },
+  {
+   "id": "PLVjO20_syBoE",
+   "title": "काल भैरव | Kaal Bhairav Songs & Mantra",
+   "description": "",
+   "count": 2,
+   "privacy": "public"
+  },
   {
    "id": "PLP-iUUBf0zGw",
    "title": "देवउठनी एकादशी | तुलसी विवाह 2026",
