@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "xOBoK3HhuceXNjZjD9OFKD8n_M4",
+  "etag": "E2e50rvy-nqEjmBYS9DY7YMipXg",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -41,15 +41,15 @@
   "topicDetails": {
    "topicIds": [
     "/m/098wr",
-    "/m/04rlf",
+    "/m/06bvp",
     "/m/028sqc",
-    "/m/06bvp"
+    "/m/04rlf"
    ],
    "topicCategories": [
     "https://en.wikipedia.org/wiki/Society",
-    "https://en.wikipedia.org/wiki/Music",
+    "https://en.wikipedia.org/wiki/Religion",
     "https://en.wikipedia.org/wiki/Music_of_Asia",
-    "https://en.wikipedia.org/wiki/Religion"
+    "https://en.wikipedia.org/wiki/Music"
    ]
   },
   "status": {
@@ -78,7 +78,7 @@
    "id": "PLHulKaP8frJc",
    "title": "संकष्टी चतुर्थी 2026 | Sankashti Chaturthi",
    "description": "",
-   "count": 2,
+   "count": 3,
    "privacy": "public"
   },
   {
