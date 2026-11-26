@@ -1,3 +1,0 @@
-vpc_bow https://cdn-ny-b.videoexpress.ai/video/1795722539_6b088d2b9bf20.mp4
-vpc_aarti https://cdn-ny-b.videoexpress.ai/video/1795722581_6b088d5557552.mp4
-vpc_petals https://cdn-ny-b.videoexpress.ai/video/1795722606_6b088d6e3e7c8.mp4
