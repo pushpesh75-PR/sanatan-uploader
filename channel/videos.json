@@ -1,6 +1,6 @@
 {
  "channel": "TheSanatanBeats",
- "subscribers": "190",
+ "subscribers": "191",
  "videos": [
   {
    "id": "tsxZ8zJpwPk",
@@ -37,8 +37,8 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT7M29S",
-   "views": 0,
-   "likes": 1,
+   "views": 3,
+   "likes": 2,
    "location": "New Delhi"
   },
   {
@@ -111,7 +111,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT48S",
-   "views": 74,
+   "views": 92,
    "likes": 2,
    "location": "New Delhi"
   },
@@ -213,7 +213,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT53S",
-   "views": 163,
+   "views": 167,
    "likes": 4,
    "location": "India"
   },
@@ -252,7 +252,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT40S",
-   "views": 67,
+   "views": 68,
    "likes": 2,
    "location": "India"
   },
@@ -1247,7 +1247,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT29S",
-   "views": 229,
+   "views": 230,
    "likes": 7,
    "location": "India"
   },
@@ -1326,7 +1326,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT48S",
-   "views": 2263,
+   "views": 2264,
    "likes": 56,
    "location": null
   },
@@ -1722,7 +1722,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT1M2S",
-   "views": 100678,
+   "views": 100667,
    "likes": 881,
    "location": "India"
   },
@@ -2057,7 +2057,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT29S",
-   "views": 229,
+   "views": 230,
    "likes": 7,
    "location": "India"
   },
@@ -3027,7 +3027,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT3M23S",
-   "views": 485,
+   "views": 487,
    "likes": 4,
    "location": "India"
   },
@@ -3098,7 +3098,7 @@
    "privacy": "public",
    "publishAt": null,
    "duration": "PT3M20S",
-   "views": 540,
+   "views": 541,
    "likes": 5,
    "location": "India"
   },
