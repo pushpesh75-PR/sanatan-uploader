@@ -1,3 +1,9 @@
-th_woman https://user-assets.renderplatform.com/preview/4b241b63-073a-4b0f-b14a-bd1e026d23e1.jpg
-th_surya https://user-assets.renderplatform.com/preview/b8bec5c2-b7a2-44b5-9adb-08eb9498246b.jpg
-n5 https://cdn-ny-b.videoexpress.ai/video/1793641638_6ae8cca6e4f27.mp4
+nb_bow https://cdn-ny-b.videoexpress.ai/video/1795757040_6b0913f0e2071.mp4
+nb_lak https://cdn-ny-b.videoexpress.ai/video/1795757129_6b09144903736.mp4
+nb_bha https://cdn-ny-b.videoexpress.ai/video/1795757176_6b0914785f283.mp4
+nb_sha https://cdn-ny-b.videoexpress.ai/video/1795757224_6b0914a8e8aed.mp4
+nb_ram https://cdn-ny-b.videoexpress.ai/video/1795757277_6b0914dd48447.mp4
+nb_jan https://cdn-ny-b.videoexpress.ai/video/1795757325_6b09150d11308.mp4
+nb_kin https://cdn-ny-b.videoexpress.ai/video/1795757371_6b09153b27e0a.mp4
+nb_lif https://cdn-ny-b.videoexpress.ai/video/1795757419_6b09156b4c1ab.mp4
+nb_jnk https://cdn-ny-b.videoexpress.ai/video/1795757465_6b09159931574.mp4
