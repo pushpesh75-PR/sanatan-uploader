@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "BIxMDE2Mr-zVdqirec0wulwsOX8",
+  "etag": "o6uXsIQAxbIb0feYgRL7SGxWkqw",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -40,16 +40,16 @@
   },
   "topicDetails": {
    "topicIds": [
-    "/m/04rlf",
-    "/m/028sqc",
+    "/m/098wr",
     "/m/06bvp",
-    "/m/098wr"
+    "/m/028sqc",
+    "/m/04rlf"
    ],
    "topicCategories": [
-    "https://en.wikipedia.org/wiki/Music",
-    "https://en.wikipedia.org/wiki/Music_of_Asia",
+    "https://en.wikipedia.org/wiki/Society",
     "https://en.wikipedia.org/wiki/Religion",
-    "https://en.wikipedia.org/wiki/Society"
+    "https://en.wikipedia.org/wiki/Music_of_Asia",
+    "https://en.wikipedia.org/wiki/Music"
    ]
   },
   "status": {
@@ -74,6 +74,13 @@
   }
  },
  "playlists": [
+  {
+   "id": "PLebg_Z2IgUlk",
+   "title": "विवाह पंचमी 2026 | Vivah Panchami 2026",
+   "description": "",
+   "count": 1,
+   "privacy": "public"
+  },
   {
    "id": "PLHulKaP8frJc",
    "title": "संकष्टी चतुर्थी 2026 | Sankashti Chaturthi",
