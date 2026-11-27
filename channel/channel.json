@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "qZ8tUU8khkYC53V_RNZenPVQ2Fs",
+  "etag": "BIxMDE2Mr-zVdqirec0wulwsOX8",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -33,23 +33,23 @@
    "country": "AE"
   },
   "statistics": {
-   "viewCount": "140335",
-   "subscriberCount": "189",
+   "viewCount": "140737",
+   "subscriberCount": "190",
    "hiddenSubscriberCount": false,
-   "videoCount": "86"
+   "videoCount": "87"
   },
   "topicDetails": {
    "topicIds": [
-    "/m/098wr",
     "/m/04rlf",
     "/m/028sqc",
-    "/m/06bvp"
+    "/m/06bvp",
+    "/m/098wr"
    ],
    "topicCategories": [
-    "https://en.wikipedia.org/wiki/Society",
     "https://en.wikipedia.org/wiki/Music",
     "https://en.wikipedia.org/wiki/Music_of_Asia",
-    "https://en.wikipedia.org/wiki/Religion"
+    "https://en.wikipedia.org/wiki/Religion",
+    "https://en.wikipedia.org/wiki/Society"
    ]
   },
   "status": {
@@ -92,7 +92,7 @@
    "id": "PLVjO20_syBoE",
    "title": "काल भैरव | Kaal Bhairav Songs & Mantra",
    "description": "",
-   "count": 2,
+   "count": 3,
    "privacy": "public"
   },
   {
@@ -120,7 +120,7 @@
    "id": "PLeIW1cQBPmFI",
    "title": "माँ लक्ष्मी | Maa Lakshmi",
    "description": "",
-   "count": 1,
+   "count": 3,
    "privacy": "public"
   },
   {
