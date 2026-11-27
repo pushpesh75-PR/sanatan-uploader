@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "o6uXsIQAxbIb0feYgRL7SGxWkqw",
+  "etag": "-K44F16Ud30wvGej17BgPIr2zpo",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -41,15 +41,15 @@
   "topicDetails": {
    "topicIds": [
     "/m/098wr",
-    "/m/06bvp",
+    "/m/04rlf",
     "/m/028sqc",
-    "/m/04rlf"
+    "/m/06bvp"
    ],
    "topicCategories": [
     "https://en.wikipedia.org/wiki/Society",
-    "https://en.wikipedia.org/wiki/Religion",
+    "https://en.wikipedia.org/wiki/Music",
     "https://en.wikipedia.org/wiki/Music_of_Asia",
-    "https://en.wikipedia.org/wiki/Music"
+    "https://en.wikipedia.org/wiki/Religion"
    ]
   },
   "status": {
@@ -127,7 +127,7 @@
    "id": "PLeIW1cQBPmFI",
    "title": "माँ लक्ष्मी | Maa Lakshmi",
    "description": "",
-   "count": 3,
+   "count": 4,
    "privacy": "public"
   },
   {
