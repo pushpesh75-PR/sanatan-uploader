@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "-BidhPVTKmqlMMWOtttwLnhJL0g",
+  "etag": "dmQcpHZKHPz6ixc_xmapDwjc8rE",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -33,23 +33,23 @@
    "country": "AE"
   },
   "statistics": {
-   "viewCount": "140737",
+   "viewCount": "140939",
    "subscriberCount": "191",
    "hiddenSubscriberCount": false,
    "videoCount": "88"
   },
   "topicDetails": {
    "topicIds": [
-    "/m/098wr",
-    "/m/04rlf",
+    "/m/06bvp",
     "/m/028sqc",
-    "/m/06bvp"
+    "/m/04rlf",
+    "/m/098wr"
    ],
    "topicCategories": [
-    "https://en.wikipedia.org/wiki/Society",
-    "https://en.wikipedia.org/wiki/Music",
+    "https://en.wikipedia.org/wiki/Religion",
     "https://en.wikipedia.org/wiki/Music_of_Asia",
-    "https://en.wikipedia.org/wiki/Religion"
+    "https://en.wikipedia.org/wiki/Music",
+    "https://en.wikipedia.org/wiki/Society"
    ]
   },
   "status": {
@@ -75,10 +75,17 @@
  },
  "playlists": [
   {
+   "id": "PLFapuCB0UCGw",
+   "title": "रविवार सूर्यदेव | Surya Dev Ravivar",
+   "description": "",
+   "count": 1,
+   "privacy": "public"
+  },
+  {
    "id": "PLebg_Z2IgUlk",
    "title": "विवाह पंचमी 2026 | Vivah Panchami 2026",
    "description": "",
-   "count": 1,
+   "count": 2,
    "privacy": "public"
   },
   {
