@@ -1,7 +1,7 @@
 {
  "channel": {
   "kind": "youtube#channel",
-  "etag": "dmQcpHZKHPz6ixc_xmapDwjc8rE",
+  "etag": "2ci1PJkaIdsIJ_BUGG8J568P4Jk",
   "id": "UC2WozyXJURXw3zCGNJ32pgw",
   "snippet": {
    "title": "TheSanatanBeats",
@@ -40,16 +40,16 @@
   },
   "topicDetails": {
    "topicIds": [
-    "/m/06bvp",
-    "/m/028sqc",
+    "/m/098wr",
     "/m/04rlf",
-    "/m/098wr"
+    "/m/028sqc",
+    "/m/06bvp"
    ],
    "topicCategories": [
-    "https://en.wikipedia.org/wiki/Religion",
-    "https://en.wikipedia.org/wiki/Music_of_Asia",
+    "https://en.wikipedia.org/wiki/Society",
     "https://en.wikipedia.org/wiki/Music",
-    "https://en.wikipedia.org/wiki/Society"
+    "https://en.wikipedia.org/wiki/Music_of_Asia",
+    "https://en.wikipedia.org/wiki/Religion"
    ]
   },
   "status": {
@@ -74,6 +74,13 @@
   }
  },
  "playlists": [
+  {
+   "id": "PLLp8hsN6wLiI",
+   "title": "एकादशी 2026 | Ekadashi 2026",
+   "description": "",
+   "count": 1,
+   "privacy": "public"
+  },
   {
    "id": "PLFapuCB0UCGw",
    "title": "रविवार सूर्यदेव | Surya Dev Ravivar",
